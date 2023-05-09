@@ -1,0 +1,13 @@
+title: Run tests declaratively
+github:
+  name: baldrick-zest-engine
+  owner: flarebyte
+test:
+  regression:
+    automation: automatic
+    deployment: ci
+    performance: seconds
+  unit:
+    automation: automatic
+    deployment: ci
+    performance: seconds

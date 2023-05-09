@@ -5,8 +5,8 @@ github:
 doc:
   references-api:
     automation: automatic
-    performanceLevel: seconds
+    performance: seconds
 diagram:
   dependencies:
     automation: automatic
-    performanceLevel: seconds
+    performance: seconds

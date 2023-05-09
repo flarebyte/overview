@@ -1,0 +1,9 @@
+title: Cunning regression tests for CLI applications
+github:
+  name: baldrick-pest
+  owner: flarebyte
+test:
+  regression:
+    automation: automatic
+    deployment: ci
+    performance: seconds

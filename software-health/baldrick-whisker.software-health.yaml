@@ -1,0 +1,14 @@
+title: Code generator for Elm and Typescript using templates
+github:
+  name: baldrick-whisker
+  owner: flarebyte
+code:
+  generation:
+    automation: automatic
+    deployment: local
+    performance: seconds
+doc:
+  developer-guide:
+    automation: automatic
+    deployment: local
+    performance: seconds
