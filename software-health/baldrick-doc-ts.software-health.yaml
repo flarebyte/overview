@@ -1,0 +1,12 @@
+---
+title: Document generator for typescript projects
+github:
+  name: baldrick-doc-ts
+doc:
+  references-api:
+    automation: automatic
+    performance: seconds
+diagram:
+  dependencies:
+    automation: automatic
+    performance: seconds

@@ -1,0 +1,24 @@
+---
+model:
+  project:
+    title: Overview of Flarebyte.com projects
+
+workflows:
+  generate:
+    title: Generate reports
+    description: Generate reports about Flarebyte.com codebase
+    tasks:
+      health:
+        title: Generate SOFTWARE-HEALTH.md
+        description: Generate software health report
+        main:
+          commands:
+            - title: Run zx sofware-health-summary.mjs
+              run: npx zx software-health/sofware-health-summary.mjs
+      timeline:
+        title: Generate SOFTWARE-TIMELINE.md
+        description: Generate software timeline report
+        main:
+          commands:
+            - title: Run zx software-timeline.mjs
+              run: npx zx inventory/software-timeline.mjs

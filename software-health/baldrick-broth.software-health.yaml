@@ -1,0 +1,8 @@
+title: Build automation tool and task runner
+github:
+  name: baldrick-broth
+  owner: flarebyte
+doc:
+  developer-guide:
+    automation: automatic
+    performance: seconds

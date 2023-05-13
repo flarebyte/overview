@@ -1,0 +1,9 @@
+title: TypeScript linter with great defaults
+github:
+  name: xo
+  owner: xojs
+code:
+  linting:
+    automation: semi-automatic
+    deployment: local
+    performance: seconds

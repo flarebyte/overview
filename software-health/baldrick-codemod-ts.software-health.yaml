@@ -1,0 +1,9 @@
+title: Code modification for typescript projects
+github:
+  name: baldrick-codemod-ts
+  owner: flarebyte
+code:
+  generation:
+    automation: manual
+    deployment: local
+    performance: seconds
