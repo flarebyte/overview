@@ -34,8 +34,8 @@ const getNpmInfo = async ({ name, description }) => {
 const spaces = '    ';
 
 export const sortedByYearAsc = (a, b) => {
-  if (a.maxYear > b.maxYear) return 1;
-  if (a.maxYear < b.maxYear) return -1;
+  if (a.minYear > b.minYear) return 1;
+  if (a.minYear < b.minYear) return -1;
   return 0;
 };
 
