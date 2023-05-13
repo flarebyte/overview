@@ -4,6 +4,10 @@ const npmPackages = JSON.parse(
   await $`gh search repos --owner flarebyte --visibility public --topic npm-package --json name,description`
 );
 
+const npmCliPackages = JSON.parse(
+    await $`gh search repos --owner flarebyte --visibility public --topic npm-cli --json name,description`
+  );
+
 const asVersionTime = (keyValue) => ({
   version: keyValue[0],
   time: keyValue[1].slice(0, 10),
@@ -16,9 +20,11 @@ const getNpmInfo = async ({ name, description }) => ({
   ).map(asVersionTime),
 });
 
-const spaces = '    '
+const spaces = '    ';
 
 const npmTimelines = await Promise.all(npmPackages.map(getNpmInfo));
+
+const npmCliTimelines = await Promise.all(npmCliPackages.map(getNpmInfo));
 
 const toGantTasks = (timeline) =>
   timeline
@@ -31,6 +37,13 @@ ${spaces}section ${npmTimeline.name}
 ${toGantTasks(npmTimeline.timeline)}
 `;
 
+const isNotRecentSection = (npmTimeline) =>
+  npmTimeline.timeline
+    .map((period) => parseInt(period.time.slice(0, 4)))
+    .some((year) => year <= new Date().getFullYear() - 4);
+
+const isRecentSection = (npmTimeline) => !isNotRecentSection(npmTimeline);
+
 const toGantSections = (anyNpmTimelines) =>
   anyNpmTimelines.map(toGantSection).join('\n');
 
@@ -41,11 +54,42 @@ const mdReport = `
 
 ## Typescript and Javascript libraries
 
+### Latest
+
 ${codeMarker('mermaid')}
 gantt
 ${spaces}title Typescript and Javascript libraries
 ${spaces}dateFormat  YYYY-MM-DD
-${toGantSections(npmTimelines)}
+${toGantSections(npmTimelines.filter(isRecentSection))}
+${codeMarker('')}
+
+### Historical
+
+${codeMarker('mermaid')}
+gantt
+${spaces}title Typescript and Javascript libraries
+${spaces}dateFormat  YYYY-MM-DD
+${toGantSections(npmTimelines.filter(isNotRecentSection))}
+${codeMarker('')}
+
+## Typescript and Javascript CLI
+
+### Latest
+
+${codeMarker('mermaid')}
+gantt
+${spaces}title Typescript and Javascript CLI
+${spaces}dateFormat  YYYY-MM-DD
+${toGantSections(npmCliTimelines.filter(isRecentSection))}
+${codeMarker('')}
+
+### Historical
+
+${codeMarker('mermaid')}
+gantt
+${spaces}title Typescript and Javascript CLI
+${spaces}dateFormat  YYYY-MM-DD
+${toGantSections(npmCliTimelines.filter(isNotRecentSection))}
 ${codeMarker('')}
 
 `;
