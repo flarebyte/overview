@@ -1,87 +1,86 @@
-
 # Software dependencies
 
 > Production NPM dependencies ranking based on usage.
 
 ## Production dependencies table
 
-| Name | Description | Score | Rank  |
-|------| ------------|-------|-------|
-| @hapi/joi | @hapi/joi |  | 1 |
-| @types/hapi__joi | @types/hapi__joi |  | 1 |
-| @types/jest | @types/jest |  | 1 |
-| @typescript-eslint/eslint-plugin | @typescript-eslint/eslint-plugin |  | 1 |
-| @typescript-eslint/parser | @typescript-eslint/parser |  | 1 |
-| ajv | ajv |  | 1 |
-| baldrick-tsconfig-es2021 | baldrick-tsconfig-es2021 |  | 1 |
-| bluebird | bluebird |  | 1 |
-| chalk | chalk | ✰✰ | 4 |
-| cli-table | cli-table |  | 1 |
-| commander | commander | ✰✰✰ | 9 |
-| confiture | confiture |  | 1 |
-| dazzling-chance | dazzling-chance |  | 1 |
-| diff | diff |  | 1 |
-| dot-prop | dot-prop | ✰ | 2 |
-| enquirer | enquirer |  | 1 |
-| eslint | eslint |  | 1 |
-| eslint-config-prettier | eslint-config-prettier |  | 1 |
-| eslint-plugin-import | eslint-plugin-import |  | 1 |
-| eslint-plugin-jest | eslint-plugin-jest |  | 1 |
-| eslint-plugin-prettier | eslint-plugin-prettier |  | 1 |
-| eslint-plugin-unicorn | eslint-plugin-unicorn |  | 1 |
-| execa | execa | ✰ | 3 |
-| fdir | fdir |  | 1 |
-| fs-extra | fs-extra | ✰✰ | 4 |
-| fs-jetpack | fs-jetpack | ✰✰ | 4 |
-| get-stdin | get-stdin |  | 1 |
-| grunt-bump | grunt-bump |  | 1 |
-| handlebars | handlebars | ✰ | 2 |
-| is-my-json-valid | is-my-json-valid | ✰ | 2 |
-| jest | jest |  | 1 |
-| jest-diff | jest-diff | ✰ | 2 |
-| jest-junit | jest-junit |  | 1 |
-| joi | joi | ✰ | 3 |
-| js-beautify | js-beautify |  | 1 |
-| json-commander | json-commander |  | 1 |
-| json-mask | json-mask |  | 1 |
-| listr2 | listr2 |  | 1 |
-| lodash | lodash | ✰✰ | 5 |
-| lodash.isequal | lodash.isequal |  | 1 |
-| markdown-table | markdown-table | ✰ | 2 |
-| marked | marked |  | 1 |
-| moment | moment | ✰ | 3 |
-| mustache | mustache |  | 1 |
-| object-crumble | object-crumble |  | 1 |
-| octokit | octokit |  | 1 |
-| papaparse | papaparse | ✰ | 3 |
-| pkginfo | pkginfo |  | 1 |
-| prettier | prettier |  | 1 |
-| prettyjson | prettyjson |  | 1 |
-| prompts | prompts | ✰ | 2 |
-| remark-cli | remark-cli |  | 1 |
-| remark-gfm | remark-gfm |  | 1 |
-| remark-lint-emphasis-marker | remark-lint-emphasis-marker |  | 1 |
-| remark-lint-list-item-indent | remark-lint-list-item-indent |  | 1 |
-| remark-lint-list-item-spacing | remark-lint-list-item-spacing |  | 1 |
-| remark-lint-maximum-heading-length | remark-lint-maximum-heading-length |  | 1 |
-| remark-lint-maximum-line-length | remark-lint-maximum-line-length |  | 1 |
-| remark-lint-ordered-list-marker-style | remark-lint-ordered-list-marker-style |  | 1 |
-| remark-lint-ordered-list-marker-value | remark-lint-ordered-list-marker-value |  | 1 |
-| remark-lint-strong-marker | remark-lint-strong-marker |  | 1 |
-| remark-lint-unordered-list-marker-style | remark-lint-unordered-list-marker-style |  | 1 |
-| remark-preset-lint-consistent | remark-preset-lint-consistent |  | 1 |
-| remark-preset-lint-recommended | remark-preset-lint-recommended |  | 1 |
-| request | request |  | 1 |
-| solace | solace |  | 1 |
-| string | string | ✰ | 2 |
-| swig | swig |  | 1 |
-| tiny-glob | tiny-glob |  | 1 |
-| ts-jest | ts-jest |  | 1 |
-| ts-morph | ts-morph | ✰ | 2 |
-| tslib | tslib |  | 1 |
-| vfile-reporter | vfile-reporter |  | 1 |
-| vfile-reporter-json | vfile-reporter-json |  | 1 |
-| winston | winston | ✰ | 2 |
-| yaml | yaml | ✰✰ | 6 |
-| zod | zod | ✰✰ | 4 |
-| zod-to-json-schema | zod-to-json-schema |  | 1 |
+| Name                                                                                                 | Description                                                                                                                                                         | Score | Use | Version | Updated      |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | ------- | ------------ |
+| [@hapi/joi](https://github.com/hapijs/joi#readme)                                                    | Object schema validation                                                                                                                                            |       | 1   | 17.1.1  | < year ⛅     |
+| [@types/hapi\_\_joi](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/hapi__joi) | TypeScript definitions for @hapi/joi                                                                                                                                |       | 1   | 17.1.9  | < quarter 🌤 |
+| [@types/jest](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jest)             | TypeScript definitions for Jest                                                                                                                                     |       | 1   | 29.5.1  | < month 🌞   |
+| [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint#readme)    | TypeScript plugin for ESLint                                                                                                                                        |       | 1   | 5.59.5  | < month 🌞   |
+| [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint#readme)           | An ESLint custom parser which leverages TypeScript ESTree                                                                                                           |       | 1   | 5.59.5  | < month 🌞   |
+| [ajv](https://ajv.js.org)                                                                            | Another JSON Schema Validator                                                                                                                                       |       | 1   | 8.12.0  | < month 🌞   |
+| [baldrick-tsconfig-es2021](https://github.com/flarebyte/baldrick-tsconfig-es2021#readme)             | Shared basic Typescript config for ES2021                                                                                                                           |       | 1   | 0.5.0   | < year ⛅     |
+| [bluebird](https://github.com/petkaantonov/bluebird)                                                 | Full featured Promises/A+ implementation with exceptionally good performance                                                                                        |       | 1   | 3.7.2   | < month 🌞   |
+| [chalk](https://github.com/chalk/chalk#readme)                                                       | Terminal string styling done right                                                                                                                                  | ✰✰    | 4   | 5.2.0   | < month 🌞   |
+| [cli-table](https://github.com/Automattic/cli-table#readme)                                          | Pretty unicode tables for the CLI                                                                                                                                   |       | 1   | 0.3.11  | < quarter 🌤 |
+| [commander](https://github.com/tj/commander.js#readme)                                               | the complete solution for node.js command-line programs                                                                                                             | ✰✰✰   | 9   | 10.0.1  | < month 🌞   |
+| [confiture](https://github.com/flarebyte/confiture)                                                  | Configuration library with validation using json-schema                                                                                                             |       | 1   | 2.1.1   | < year ⛅     |
+| [dazzling-chance](https://github.com/flarebyte/dazzling-chance)                                      | Number generator based on a text input with vague random properties                                                                                                 |       | 1   | 0.1.0   | < year ⛅     |
+| [diff](https://github.com/kpdecker/jsdiff#readme)                                                    | A javascript text diff implementation.                                                                                                                              |       | 1   | 5.1.0   | < quarter 🌤 |
+| [dot-prop](https://github.com/sindresorhus/dot-prop#readme)                                          | Get, set, or delete a property from a nested object using a dot path                                                                                                | ✰     | 2   | 8.0.0   | < month 🌞   |
+| [enquirer](https://github.com/enquirer/enquirer)                                                     | Stylish, intuitive and user-friendly prompt system. Fast and lightweight enough for small projects, powerful and extensible enough for the most advanced use cases. |       | 1   | 2.3.6   | < quarter 🌤 |
+| [eslint](https://eslint.org)                                                                         | An AST-based pattern checker for JavaScript.                                                                                                                        |       | 1   | 8.40.0  | < month 🌞   |
+| [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier#readme)                  | Turns off all rules that are unnecessary or might conflict with Prettier.                                                                                           |       | 1   | 8.8.0   | < quarter 🌤 |
+| [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import)                            | Import with sanity.                                                                                                                                                 |       | 1   | 2.27.5  | < quarter 🌤 |
+| [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest#readme)                    | ESLint rules for Jest                                                                                                                                               |       | 1   | 27.2.1  | < quarter 🌤 |
+| [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier#readme)                  | Runs prettier as an eslint rule                                                                                                                                     |       | 1   | 4.2.1   | < quarter 🌤 |
+| [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn#readme)                | More than 100 powerful ESLint rules                                                                                                                                 |       | 1   | 47.0.0  | < month 🌞   |
+| [execa](https://github.com/sindresorhus/execa#readme)                                                | Process execution for humans                                                                                                                                        | ✰     | 3   | 7.1.1   | < quarter 🌤 |
+| [fdir](https://github.com/thecodrr/fdir#readme)                                                      | The fastest directory crawler & globbing alternative to glob, fast-glob, & tiny-glob. Crawls 1m files in < 1s                                                       |       | 1   | 6.0.1   | < year ⛅     |
+| [fs-extra](https://github.com/jprichardson/node-fs-extra)                                            | fs-extra contains methods that aren't included in the vanilla Node.js fs package. Such as recursive mkdir, copy, and remove.                                        | ✰✰    | 4   | 11.1.1  | < quarter 🌤 |
+| [fs-jetpack](https://github.com/szwacz/fs-jetpack)                                                   | Better file system API                                                                                                                                              | ✰✰    | 4   | 5.1.0   | < year ⛅     |
+| [get-stdin](https://github.com/sindresorhus/get-stdin#readme)                                        | Get stdin as a string or buffer                                                                                                                                     |       | 1   | 9.0.0   | < year ⛅     |
+| [grunt-bump](https://github.com/vojtajina/grunt-bump)                                                | Bump package version                                                                                                                                                |       | 1   | 0.8.0   | < year ⛅     |
+| [handlebars](http://www.handlebarsjs.com/)                                                           | Handlebars provides the power necessary to let you build semantic templates effectively with no frustration                                                         | ✰     | 2   | 4.7.7   | < quarter 🌤 |
+| [is-my-json-valid](https://github.com/mafintosh/is-my-json-valid#readme)                             | A [JSONSchema](https://json-schema.org/) validator that uses code generation to be extremely fast.                                                                  | ✰     | 2   | 2.20.6  | < year ⛅     |
+| [jest](https://jestjs.io/)                                                                           | Delightful JavaScript Testing.                                                                                                                                      |       | 1   | 29.5.0  | < quarter 🌤 |
+| [jest-diff](https://github.com/facebook/jest#readme)                                                 | Display differences clearly so people can review changes confidently.                                                                                               | ✰     | 2   | 29.5.0  | < quarter 🌤 |
+| [jest-junit](https://github.com/jest-community/jest-junit#readme)                                    | A jest reporter that generates junit xml files                                                                                                                      |       | 1   | 16.0.0  | < month 🌞   |
+| [joi](https://github.com/hapijs/joi#readme)                                                          | Object schema validation                                                                                                                                            | ✰     | 3   | 17.9.2  | < month 🌞   |
+| [js-beautify](https://beautifier.io/)                                                                | beautifier.io for node                                                                                                                                              |       | 1   | 1.14.7  | < year ⛅     |
+| [json-commander](https://github.com/flarebyte/json-commander#readme)                                 | Commands generator for the update of json documents                                                                                                                 |       | 1   | 1.0.0   | < year ⛅     |
+| [json-mask](https://github.com/nemtsov/json-mask#readme)                                             | Tiny language and engine for selecting specific parts of a JS object, hiding the rest.                                                                              |       | 1   | 2.0.0   | < year ⛅     |
+| [listr2](https://github.com/listr2/listr2#readme)                                                    | Terminal task list reborn! Create beautiful CLI interfaces via easy and logical to implement task lists that feel alive and interactive.                            |       | 1   | 6.4.2   | < month 🌞   |
+| [lodash](https://lodash.com/)                                                                        | Lodash modular utilities.                                                                                                                                           | ✰✰    | 5   | 4.17.21 | < month 🌞   |
+| [lodash.isequal](https://lodash.com/)                                                                | The Lodash method `_.isEqual` exported as a module.                                                                                                                 |       | 1   | 4.5.0   | < year ⛅     |
+| [markdown-table](https://github.com/wooorm/markdown-table#readme)                                    | Generate a markdown (GFM) table                                                                                                                                     | ✰     | 2   | 3.0.3   | < year ⛅     |
+| [marked](https://marked.js.org)                                                                      | A markdown parser built for speed                                                                                                                                   |       | 1   | 5.0.2   | < month 🌞   |
+| [moment](https://momentjs.com)                                                                       | Parse, validate, manipulate, and display dates                                                                                                                      | ✰     | 3   | 2.29.4  | < month 🌞   |
+| [mustache](https://github.com/janl/mustache.js)                                                      | Logic-less {{mustache}} templates with JavaScript                                                                                                                   |       | 1   | 4.2.0   | < year ⛅     |
+| [object-crumble](https://github.com/flarebyte/object-crumble)                                        | Creative ways to cook your object                                                                                                                                   |       | 1   | 0.6.6   | < year ⛅     |
+| [octokit](https://github.com/octokit/octokit.js#readme)                                              | The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno                                                                                               |       | 1   | 2.0.14  | < year ⛅     |
+| [papaparse](http://papaparse.com)                                                                    | Fast and powerful CSV parser for the browser that supports web workers and streaming large files. Converts CSV to JSON and JSON to CSV.                             | ✰     | 3   | 5.4.1   | < quarter 🌤 |
+| [pkginfo](https://github.com/indexzero/node-pkginfo#readme)                                          | An easy way to expose properties on a module from a package.json                                                                                                    |       | 1   | 0.4.1   | < year ⛅     |
+| [prettier](https://prettier.io)                                                                      | Prettier is an opinionated code formatter                                                                                                                           |       | 1   | 2.8.8   | < month 🌞   |
+| [prettyjson](http://rafeca.com/prettyjson)                                                           | Package for formatting JSON data in a coloured YAML-style, perfect for CLI output                                                                                   |       | 1   | 1.2.5   | < year ⛅     |
+| [prompts](https://github.com/terkelg/prompts#readme)                                                 | Lightweight, beautiful and user-friendly prompts                                                                                                                    | ✰     | 2   | 2.4.2   | < year ⛅     |
+| [remark-cli](https://remark.js.org)                                                                  | Command line interface to inspect and change markdown files with remark                                                                                             |       | 1   | 11.0.0  | < year ⛅     |
+| [remark-gfm](https://github.com/remarkjs/remark-gfm#readme)                                          | remark plugin to support GFM (autolink literals, footnotes, strikethrough, tables, tasklists)                                                                       |       | 1   | 3.0.1   | < month 🌞   |
+| [remark-lint-emphasis-marker](https://github.com/remarkjs/remark-lint#readme)                        | remark-lint rule to warn when emphasis markers violate the given style                                                                                              |       | 1   | 3.1.1   | < year ⛅     |
+| [remark-lint-list-item-indent](https://github.com/remarkjs/remark-lint#readme)                       | remark-lint rule to warn when the spacing between a list item’s bullet and its content violates a given style                                                       |       | 1   | 3.1.1   | < year ⛅     |
+| [remark-lint-list-item-spacing](https://github.com/remarkjs/remark-lint#readme)                      | remark-lint rule to warn when list looseness is incorrect                                                                                                           |       | 1   | 4.1.1   | < year ⛅     |
+| [remark-lint-maximum-heading-length](https://github.com/remarkjs/remark-lint#readme)                 | remark-lint rule to warn when headings are too long                                                                                                                 |       | 1   | 3.1.1   | < year ⛅     |
+| [remark-lint-maximum-line-length](https://github.com/remarkjs/remark-lint#readme)                    | remark-lint rule to warn when lines are too long                                                                                                                    |       | 1   | 3.1.2   | < year ⛅     |
+| [remark-lint-ordered-list-marker-style](https://github.com/remarkjs/remark-lint#readme)              | remark-lint rule to warn when the markers of ordered lists violate a given style                                                                                    |       | 1   | 3.1.1   | < year ⛅     |
+| [remark-lint-ordered-list-marker-value](https://github.com/remarkjs/remark-lint#readme)              | remark-lint rule to warn when the marker value of ordered lists violates a given style                                                                              |       | 1   | 3.1.1   | < year ⛅     |
+| [remark-lint-strong-marker](https://github.com/remarkjs/remark-lint#readme)                          | remark-lint rule to warn when importance (strong) markers violate the given style                                                                                   |       | 1   | 3.1.1   | < year ⛅     |
+| [remark-lint-unordered-list-marker-style](https://github.com/remarkjs/remark-lint#readme)            | remark-lint rule to warn when markers of unordered lists violate a given style                                                                                      |       | 1   | 3.1.1   | < year ⛅     |
+| [remark-preset-lint-consistent](https://github.com/remarkjs/remark-lint#readme)                      | remark preset to configure remark-lint with rules that enforce consistency                                                                                          |       | 1   | 5.1.1   | < year ⛅     |
+| [remark-preset-lint-recommended](https://github.com/remarkjs/remark-lint#readme)                     | remark preset to configure remark-lint with rules that prevent mistakes or stuff that fails across vendors.                                                         |       | 1   | 6.1.2   | < year ⛅     |
+| [request](https://github.com/request/request#readme)                                                 | Simplified HTTP request client.                                                                                                                                     |       | 1   | 2.88.2  | < month 🌞   |
+| [solace](https://github.com/flarebyte/solace)                                                        | Alternative to console log which automatically beautifies the output                                                                                                |       | 1   | 1.2.0   | < year ⛅     |
+| [string](http://stringjs.com)                                                                        | string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.                   | ✰     | 2   | 3.3.3   | < year ⛅     |
+| [swig](https://github.com/paularmstrong/swig)                                                        | A simple, powerful, and extendable templating engine for node.js and browsers, similar to Django, Jinja2, and Twig.                                                 |       | 1   | 1.4.2   | < year ⛅     |
+| [tiny-glob](https://github.com/terkelg/tiny-glob#readme)                                             | Tiny and extremely fast globbing                                                                                                                                    |       | 1   | 0.2.9   | < year ⛅     |
+| [ts-jest](https://kulshekhar.github.io/ts-jest)                                                      | A Jest transformer with source map support that lets you use Jest to test projects written in TypeScript                                                            |       | 1   | 29.1.0  | < quarter 🌤 |
+| [ts-morph](https://github.com/dsherret/ts-morph#readme)                                              | TypeScript compiler wrapper for static analysis and code manipulation.                                                                                              | ✰     | 2   | 18.0.0  | < quarter 🌤 |
+| [tslib](https://www.typescriptlang.org/)                                                             | Runtime library for TypeScript helper functions                                                                                                                     |       | 1   | 2.5.0   | < quarter 🌤 |
+| [vfile-reporter](https://github.com/vfile/vfile-reporter#readme)                                     | vfile utility to create a report for a file                                                                                                                         |       | 1   | 7.0.5   | < month 🌞   |
+| [vfile-reporter-json](https://github.com/vfile/vfile-reporter-json#readme)                           | vfile utility to create a JSON report for a file                                                                                                                    |       | 1   | 3.3.0   | < month 🌞   |
+| [winston](https://github.com/winstonjs/winston#readme)                                               | A logger for just about everything.                                                                                                                                 | ✰     | 2   | 3.8.2   | < quarter 🌤 |
+| [yaml](https://eemeli.org/yaml/)                                                                     | JavaScript parser and stringifier for YAML                                                                                                                          | ✰✰    | 6   | 2.2.2   | < month 🌞   |
+| [zod](https://zod.dev)                                                                               | TypeScript-first schema declaration and validation library with static type inference                                                                               | ✰✰    | 4   | 3.21.4  | < quarter 🌤 |
+| [zod-to-json-schema](https://github.com/StefanTerdell/zod-to-json-schema#readme)                     | Converts Zod schemas to Json Schemas                                                                                                                                |       | 1   | 3.21.1  | < month 🌞   |
