@@ -157,7 +157,7 @@ const scoreToSmiley = (score) => {
     return 0;
   }
 
-  const logScore = Math.ceil(Math.log(score) / Math.log(2));
+  const logScore = Math.ceil(Math.log(score) / Math.log(2.5));
   return logScore;
 };
 
@@ -177,11 +177,19 @@ const codeMarker = (tag) => '```' + tag;
 const mdReport = `
 # Software health
 
+The software health reflects our ability to deliver high-quality solutions that meet the needs of our diverse customers and stakeholders. 
+It inspires us to:
+
+- Adopt a consistent and inclusive approach that fosters collaboration and learning.
+- Embrace creativity and innovation at scale to solve complex problems and create value.
+- Automate repetitive tasks to free up time and resources for more impactful work.
+- Evolve our code and features to adapt to changing requirements and expectations.
+
 ## Team journey overview
 
 ${codeMarker('mermaid')}
 journey
-    title My working day
+    title Engineering Experience
 ${scoreUserJourney}
 
 ${codeMarker('')}

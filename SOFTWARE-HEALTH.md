@@ -1,20 +1,28 @@
 
 # Software health
 
+The software health reflects our ability to deliver high-quality solutions that meet the needs of our diverse customers and stakeholders. 
+It inspires us to:
+
+- Adopt a consistent and inclusive approach that fosters collaboration and learning.
+- Embrace creativity and innovation at scale to solve complex problems and create value.
+- Automate repetitive tasks to free up time and resources for more impactful work.
+- Evolve our code and features to adapt to changing requirements and expectations.
+
 ## Team journey overview
 
 ```mermaid
 journey
-    title My working day
+    title Engineering Experience
     architecture: 0: Team
     brainstorming: 0: Team
     code: 2: Team
     deps: 0: Team
     diagram: 1: Team
-    doc: 3: Team
+    doc: 2: Team
     ops: 0: Team
     specs: 0: Team
-    test: 4: Team
+    test: 3: Team
     ux: 0: Team
 
 ```
