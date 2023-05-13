@@ -22,3 +22,10 @@ workflows:
           commands:
             - title: Run zx software-timeline.mjs
               run: npx zx inventory/software-timeline.mjs
+      deps:
+        title: Generate SOFTWARE-DEPENDENCIES.md
+        description: Generate software dependencies report
+        main:
+          commands:
+            - title: Run zx software-dependencies.mjs
+              run: npx zx inventory/software-dependencies.mjs
