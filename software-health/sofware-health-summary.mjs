@@ -157,7 +157,7 @@ const scoreToSmiley = (score) => {
     return 0;
   }
 
-  const logScore = Math.ceil(Math.log(score) / Math.log(3));
+  const logScore = Math.ceil(Math.log(score) / Math.log(2));
   return logScore;
 };
 

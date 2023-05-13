@@ -11,10 +11,10 @@ journey
     code: 2: Team
     deps: 0: Team
     diagram: 1: Team
-    doc: 2: Team
+    doc: 3: Team
     ops: 0: Team
     specs: 0: Team
-    test: 3: Team
+    test: 4: Team
     ux: 0: Team
 
 ```
