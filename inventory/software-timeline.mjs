@@ -18,8 +18,10 @@ const getNpmInfo = async ({ name, description }) => {
   )
     .map(asVersionTime)
     .filter((versionTime) => versionTime.version !== 'modified');
-  const years = timeline.map((versionTime) =>
-    parseInt(versionTime.time.slice(0, 4))
+  const years = timeline.map(
+    (versionTime) =>
+      parseInt(versionTime.time.slice(0, 4)) +
+      parseInt(versionTime.time.slice(5, 7)) / 100
   );
 
   return {
