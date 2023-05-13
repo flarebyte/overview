@@ -5,20 +5,31 @@ const npmPackages = JSON.parse(
 );
 
 const npmCliPackages = JSON.parse(
-    await $`gh search repos --owner flarebyte --visibility public --topic npm-cli --json name,description`
-  );
+  await $`gh search repos --owner flarebyte --visibility public --topic npm-cli --json name,description`
+);
 
 const asVersionTime = (keyValue) => ({
   version: keyValue[0],
   time: keyValue[1].slice(0, 10),
 });
-const getNpmInfo = async ({ name, description }) => ({
-  name,
-  description,
-  timeline: Object.entries(
+const getNpmInfo = async ({ name, description }) => {
+  const timeline = Object.entries(
     JSON.parse(await $`npm info ${name} --json time`)
-  ).map(asVersionTime),
-});
+  )
+    .map(asVersionTime)
+    .filter((versionTime) => versionTime.version !== 'modified');
+  const years = timeline.map((versionTime) =>
+    parseInt(versionTime.time.slice(0, 4))
+  );
+
+  return {
+    name,
+    description,
+    timeline,
+    maxYear: Math.max(...years),
+    minYear: Math.min(...years),
+  };
+};
 
 const spaces = '    ';
 
@@ -38,9 +49,7 @@ ${toGantTasks(npmTimeline.timeline)}
 `;
 
 const isNotRecentSection = (npmTimeline) =>
-  npmTimeline.timeline
-    .map((period) => parseInt(period.time.slice(0, 4)))
-    .some((year) => year <= new Date().getFullYear() - 4);
+  npmTimeline.minYear <= new Date().getFullYear() - 4;
 
 const isRecentSection = (npmTimeline) => !isNotRecentSection(npmTimeline);
 
