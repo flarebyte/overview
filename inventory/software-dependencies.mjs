@@ -150,8 +150,8 @@ const mdReport = `
 
 ## Production dependencies table
 
-| Name | Description | Score | Rank  | Version | Updated |
-|------| ------------|-------|-------|---------|---------|
+| Name | Description | Score | Use | Version | Updated |
+|------| ------------|-------|-----|---------|---------|
 ${scoreDepsTable}
 `;
 
