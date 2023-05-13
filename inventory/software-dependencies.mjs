@@ -112,6 +112,7 @@ const mdReadme = `
 
 * [Software health](SOFTWARE-HEALTH.md)
 * [Software timeline](./SOFTWARE-TIMELINE.md)
+* [Software dependencies](./SOFTWARE-DEPENDENCIES.md)
 
 ## Typescript/Javascript libraries
 
