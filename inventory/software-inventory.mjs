@@ -16,16 +16,18 @@ const getNpmInfo = async ({ name, description }) => ({
   ).map(asVersionTime),
 });
 
+const spaces = '    '
+
 const npmTimelines = await Promise.all(npmPackages.map(getNpmInfo));
 
 const toGantTasks = (timeline) =>
   timeline
-    .map((period) => `   ${period.version}:, ${period.time}, 1d`)
+    .map((period) => `${spaces}${period.version}:, ${period.time}, 1d`)
     .join('\n');
 
 const toGantSection = (npmTimeline) =>
   `
-    section ${npmTimeline.name}
+${spaces}section ${npmTimeline.name}
 ${toGantTasks(npmTimeline.timeline)}
 `;
 
@@ -37,12 +39,12 @@ const codeMarker = (tag) => '```' + tag;
 const mdReport = `
 # Software publishing timeline
 
-## Gantt of publishing libraries
+## Typescript and Javascript libraries
 
 ${codeMarker('mermaid')}
 gantt
-    title Flarebyte.com library publishing
-    dateFormat  YYYY-MM-DD
+${spaces}title Typescript and Javascript libraries
+${spaces}dateFormat  YYYY-MM-DD
 ${toGantSections(npmTimelines)}
 ${codeMarker('')}
 
