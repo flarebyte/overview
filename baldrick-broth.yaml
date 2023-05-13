@@ -2,8 +2,30 @@
 model:
   project:
     title: Overview of Flarebyte.com projects
-
 workflows:
+  md:
+    title: Markdown documentation
+    description: Manage markdown documentation
+    tasks:
+      check:
+        title: Check Markdown files
+        description: Checks that the markdown documents follows some consistent guidelines
+        motivation: Make the markdown documents consistent in style
+        main:
+          commands:
+            - name: check
+              title: Check markdown files
+              run: npx baldrick-dev-ts@latest markdown check
+      fix:
+        title: Fix Markdown files
+        description:
+          Modify the markdown documents to ensure they follow some consistent
+          guidelines
+        motivation: Make the markdown documents consistent in style
+        main:
+          commands:
+            - title: Fix markdown files
+              run: npx baldrick-dev-ts@latest markdown fix
   generate:
     title: Generate reports
     description: Generate reports about Flarebyte.com codebase

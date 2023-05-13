@@ -1,4 +1,7 @@
 #!/usr/bin/env zx
+$.verbose = false;
+
+const today = new Date();
 
 const safeParse = (value) => {
   try {
@@ -31,6 +34,28 @@ const getNpmInfo = async ({ name, description }) => {
   };
 };
 
+const getNpmInfoForLib = async ({ name, count }) => {
+  const npmJson =
+    await $`npm info ${name} --json name description homepage version time`;
+  const {
+    description,
+    homepage,
+    version,
+    time: { modified },
+  } = safeParse(npmJson);
+  const modifiedDate = new Date(modified);
+  const differenceInMs = today - modifiedDate;
+  const modifiedInDays = differenceInMs / (1000 * 60 * 60 * 24);
+  return {
+    name,
+    description,
+    homepage,
+    version,
+    modifiedInDays,
+    count,
+  };
+};
+
 const npmDependencies = await Promise.all(allNpmPackages.map(getNpmInfo));
 
 const sortedByNameAsc = (a, b) => {
@@ -56,6 +81,9 @@ const countDependencies = (listOfNpmDependencies) => {
 const codeMarker = (tag) => '```' + tag;
 
 const scoreRows = countDependencies(npmDependencies);
+const childNpmDependencies = await Promise.all(
+  scoreRows.map((row) => getNpmInfoForLib(row))
+);
 
 const scoreToStars = (score) => {
   if (score === 0) {
@@ -66,12 +94,36 @@ const scoreToStars = (score) => {
   return '✰'.repeat(logScore);
 };
 
-const scoreDepsTable = scoreRows
+const updatedToFlag = (days) => {
+  if (days < 30) {
+    return '< month 🌞';
+  }
+  if (days < 90) {
+    return '< quarter 🌤';
+  }
+  if (days < 365) {
+    return '< year ⛅';
+  }
+  if (days < 365 * 2) {
+    return '<  2 year 🌧';
+  }
+
+  return '> 2 years 🌩';
+};
+
+const homepageOrName = (keyScore) =>
+  keyScore.homepage === undefined
+    ? keyScore.name
+    : `[${keyScore.name}](${keyScore.homepage})`;
+
+const scoreDepsTable = childNpmDependencies
   .map(
     (keyScore) =>
-      `| ${keyScore.name} | ${keyScore.name} | ${scoreToStars(
+      `| ${homepageOrName(keyScore)} | ${keyScore.description} | ${scoreToStars(
         keyScore.count
-      )} | ${keyScore.count} |`
+      )} | ${keyScore.count} |${keyScore.version} | ${updatedToFlag(
+        keyScore.modifiedInDays
+      )} |`
   )
   .join('\n');
 
@@ -98,8 +150,8 @@ const mdReport = `
 
 ## Production dependencies table
 
-| Name | Description | Score | Rank  |
-|------| ------------|-------|-------|
+| Name | Description | Score | Rank  | Version | Updated |
+|------| ------------|-------|-------|---------|---------|
 ${scoreDepsTable}
 `;
 
