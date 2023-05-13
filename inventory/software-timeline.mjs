@@ -33,19 +33,19 @@ const getNpmInfo = async ({ name, description }) => {
 
 const spaces = '    ';
 
-export const sortedByYearDesc = (a, b) => {
-  if (a.maxYear > b.maxYear) return -1;
-  if (a.maxYear < b.maxYear) return 1;
+export const sortedByYearAsc = (a, b) => {
+  if (a.maxYear > b.maxYear) return 1;
+  if (a.maxYear < b.maxYear) return -1;
   return 0;
 };
 
 const npmTimelines = (await Promise.all(npmPackages.map(getNpmInfo))).sort(
-  sortedByYearDesc
+  sortedByYearAsc
 );
 
 const npmCliTimelines = (
   await Promise.all(npmCliPackages.map(getNpmInfo))
-).sort(sortedByYearDesc);
+).sort(sortedByYearAsc);
 
 const toGantTasks = (timeline) =>
   timeline
