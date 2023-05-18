@@ -5,6 +5,7 @@
 -   [Software health](SOFTWARE-HEALTH.md)
 -   [Software timeline](./SOFTWARE-TIMELINE.md)
 -   [Software dependencies](./SOFTWARE-DEPENDENCIES.md)
+-   [Engineering principles](./PRINCIPLES.md)
 
 ## Typescript/Javascript libraries
 
