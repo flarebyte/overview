@@ -1,5 +1,7 @@
 # Principles
 
+![Female Cyborg Developer](female-cyborg-dev-512.jpeg)
+
 ## Evolution
 
 Software is always changing. It adapts to the needs of our users, our business, and our technology. We welcome change and learn from it.
@@ -10,7 +12,7 @@ We value:
 - Feedback: We listen to what our users and stakeholders tell us about our software and act on it.
 - Adaptability: We are flexible and ready to adjust to new situations and requirements.
 
-## Innovation
+## Innovation :rocket:
 
 We love to explore new possibilities. We try new things and see what works and what doesn't. We deepen our understanding of problems and solutions. We learn from our successes and failures.
 
