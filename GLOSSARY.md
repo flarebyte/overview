@@ -66,8 +66,7 @@ different ways:
 
 -   Example: `const f = x => y => x + y;` is a curried function that takes
     two arguments `x` and `y`, but returns another function that takes `y`
-    as its argument. We can use it like this: `f(2)(3)` or `const g = f(2);
-    g(3);`
+    as its argument. We can use it like this: `f(2)(3)` or `const g = f(2); g(3);`
 
 **Motivation:**
 
