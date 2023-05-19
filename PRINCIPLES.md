@@ -2,6 +2,61 @@
 
 ![Female Cyborg Developer](female-cyborg-dev-512.jpeg)
 
+The engineering principles we present here are not set in stone. They reflect
+our current understanding and approach.
+We should welcome and anticipate changes in the code base as we learn and
+grow.
+However, the core of our work should always be the designers and engineers,
+who should work together and be supported in every way possible to eliminate
+the barriers and foster innovation.
+
+```mermaid
+mindmap
+  root((Designer and engineer))
+    Proficiency
+        Collaboration
+        Knowledge sharing
+        Learning
+    Feedback loop
+        Communication
+        Feedback
+        Improvement
+    Assistance
+        Automation
+        Simplification
+        Reuse
+    Collaboration
+       Teamwork
+       Communication
+       Respect
+       Empathy
+```
+
+```mermaid
+mindmap
+  root((Environment))
+    Evolution
+        Continuous improvement
+        Feedback
+        Adaptability
+    Innovation
+        Creativity
+        Experimentation
+        Learning
+    Risk management
+        Planning
+        Assessment
+        Decision making
+    Defect detection
+        Quality
+        Testing
+        Improvement
+    Multiple axis concerns
+        Holism
+        Balance
+        Alignment
+```
+
 ## Evolution
 
 Software is always changing. It adapts to the needs of our users, our
@@ -58,6 +113,21 @@ We value:
 -   Improvement: We fix defects quickly and prevent them from happening
     again.
 
+## Multiple axis concerns
+
+We consider multiple aspects of software development, such as software
+engineering, user experience, business specification, documentation,
+architecture, and implementation. We balance these aspects and align them
+with our goals.
+
+We value:
+
+-   Holism: We look at the big picture and how all the parts fit together.
+-   Balance: We weigh the importance of each aspect and prioritize
+    accordingly.
+-   Alignment: We ensure that all aspects of our software are consistent
+    with our vision and objectives.
+
 ## Designer and engineer proficiency
 
 We share our knowledge and skills with each other. We use tools that help us
@@ -102,21 +172,6 @@ We value:
     smaller steps or using simpler methods.
 -   Reuse: We use existing solutions that have been proven to work well for
     similar problems.
-
-## Multiple axis concerns
-
-We consider multiple aspects of software development, such as software
-engineering, user experience, business specification, documentation,
-architecture, and implementation. We balance these aspects and align them
-with our goals.
-
-We value:
-
--   Holism: We look at the big picture and how all the parts fit together.
--   Balance: We weigh the importance of each aspect and prioritize
-    accordingly.
--   Alignment: We ensure that all aspects of our software are consistent
-    with our vision and objectives.
 
 ## Collaboration
 
