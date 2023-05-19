@@ -2,7 +2,62 @@
 
 ![Female Cyborg Developer](female-cyborg-dev-512.jpeg)
 
-## Evolution
+The engineering principles we present here are not set in stone. They reflect
+our current understanding and approach.
+We should welcome and anticipate changes in the code base as we learn and
+grow.
+However, the core of our work should always be the designers and engineers,
+who should work together and be supported in every way possible to eliminate
+the barriers and foster innovation.
+
+```mermaid
+mindmap
+  root((Designer and engineer))
+    Proficiency
+        Collaboration
+        Knowledge sharing
+        Learning
+    Feedback loop
+        Communication
+        Feedback
+        Improvement
+    Assistance
+        Automation
+        Simplification
+        Reuse
+    Collaboration
+       Teamwork
+       Communication
+       Respect
+       Empathy
+```
+
+```mermaid
+mindmap
+  root((Environment))
+    Evolution
+        Continuous improvement
+        Feedback
+        Adaptability
+    Innovation
+        Creativity
+        Experimentation
+        Learning
+    Risk management
+        Planning
+        Assessment
+        Decision making
+    Defect detection
+        Quality
+        Testing
+        Improvement
+    Multiple axis concerns
+        Holism
+        Balance
+        Alignment
+```
+
+## Evolution 🧬
 
 Software is always changing. It adapts to the needs of our users, our
 business, and our technology. We welcome change and learn from it.
@@ -44,7 +99,7 @@ We value:
 -   Decision-making: We use data and logic to make the best decisions for
     our software.
 
-## Defect detection
+## Defect detection 🔎🐛
 
 We find and fix defects as soon as possible. We test our software thoroughly
 and continuously. We prevent bugs from causing more problems.
@@ -58,52 +113,7 @@ We value:
 -   Improvement: We fix defects quickly and prevent them from happening
     again.
 
-## Designer and engineer proficiency
-
-We share our knowledge and skills with each other. We use tools that help us
-design and engineer high-quality software. We keep learning and improving our
-craft.
-
-We value:
-
--   Collaboration: We work together and support each other in achieving our
-    goals.
--   Knowledge sharing: We exchange information and insights with each other
-    to increase our collective wisdom.
--   Learning: We seek new opportunities to learn new skills and
-    technologies.
-
-## Designer and engineer feedback loop
-
-We get feedback to improve the design and engineering of our software. We
-listen to our users, our stakeholders, and our peers. We measure the impact
-of our changes.
-
-We value:
-
--   Communication: We communicate clearly and effectively with each other
-    and with external parties.
--   Feedback: We solicit, receive, and give constructive feedback to
-    improve our software.
--   Improvement: We implement feedback and track the results of our
-    changes.
-
-## Designer and engineer assistance
-
-We use tools that assist us in our creativity and effort. We automate
-repetitive tasks and simplify complex ones. We leverage existing solutions
-and avoid reinventing the wheel.
-
-We value:
-
--   Automation: We use technology to perform tasks that can be done faster
-    or better by machines.
--   Simplification: We make complex tasks easier by breaking them down into
-    smaller steps or using simpler methods.
--   Reuse: We use existing solutions that have been proven to work well for
-    similar problems.
-
-## Multiple axis concerns
+## Multiple axis concerns 📊📈📉📅
 
 We consider multiple aspects of software development, such as software
 engineering, user experience, business specification, documentation,
@@ -118,7 +128,52 @@ We value:
 -   Alignment: We ensure that all aspects of our software are consistent
     with our vision and objectives.
 
-## Collaboration
+## Designer and engineer proficiency 🏆👏
+
+We share our knowledge and skills with each other. We use tools that help us
+design and engineer high-quality software. We keep learning and improving our
+craft.
+
+We value:
+
+-   Collaboration: We work together and support each other in achieving our
+    goals.
+-   Knowledge sharing: We exchange information and insights with each other
+    to increase our collective wisdom.
+-   Learning: We seek new opportunities to learn new skills and
+    technologies.
+
+## Designer and engineer feedback loop 🔄👩‍💻
+
+We get feedback to improve the design and engineering of our software. We
+listen to our users, our stakeholders, and our peers. We measure the impact
+of our changes.
+
+We value:
+
+-   Communication: We communicate clearly and effectively with each other
+    and with external parties.
+-   Feedback: We solicit, receive, and give constructive feedback to
+    improve our software.
+-   Improvement: We implement feedback and track the results of our
+    changes.
+
+## Designer and engineer assistance 🙋‍♀️👩‍💻
+
+We use tools that assist us in our creativity and effort. We automate
+repetitive tasks and simplify complex ones. We leverage existing solutions
+and avoid reinventing the wheel.
+
+We value:
+
+-   Automation: We use technology to perform tasks that can be done faster
+    or better by machines.
+-   Simplification: We make complex tasks easier by breaking them down into
+    smaller steps or using simpler methods.
+-   Reuse: We use existing solutions that have been proven to work well for
+    similar problems.
+
+## Collaboration 👥
 
 We work well with others. We are welcoming, inclusive, respectful, and
 empathetic towards other team members. We communicate effectively and work
