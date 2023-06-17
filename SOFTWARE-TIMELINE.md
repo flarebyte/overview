@@ -54,9 +54,24 @@ gantt
     0.9.0:, 2023-02-27, 1d
 
 
+    section faora-kai
+    created:, 2023-05-28, 1d
+    0.1.0:, 2023-05-28, 1d
+
+
     section lunar-diamond-engraving
     created:, 2023-05-12, 1d
     0.1.0:, 2023-05-12, 1d
+
+
+    section fairlie-functional
+    created:, 2023-06-06, 1d
+    0.1.0:, 2023-06-06, 1d
+
+
+    section lunar-obsidian-crypt
+    created:, 2023-06-03, 1d
+    0.1.0:, 2023-06-03, 1d
 
 ```
 
