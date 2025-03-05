@@ -20,15 +20,34 @@ const npmFolder = '/tmp/overview/npm-package';
 // const folder = await resetTempFolder('npm-package');
 // console.log(`- Reset folder ${folder}`);
 
-// await cloneFlarebyteRepositories(folder, npmPackageRepos);
+//await cloneFlarebyteRepositories(folder, npmPackageRepos);
 
+const trivyFsJSON = await runTrivyFs(npmFolder);
+const trivyFsData = trivyFsSummary(trivyFsJSON);
+console.log(trivyFsData);
+
+const countOfProjects = 10;
 const sccJson = await runScc(npmFolder);
-const scc2 = convertToIndexedColumnsFormat(simplifyScc(sccJson));
-const scc3 = {
-  ...createObjectField('Date', getISODateString(), getFieldLength(scc2.Name)),
-  ...scc2,
+const sccColumns = convertToIndexedColumnsFormat(simplifyScc(sccJson));
+const rowCount = getFieldLength(sccColumns.Name);
+const sccColumnMerged = {
+  ...createObjectField('Date', getISODateString(), rowCount),
+  ...createObjectField('Projects', countOfProjects, rowCount),
+  ...createObjectField(
+    'severity_high',
+    trivyFsData?.severity_high?.length || 0,
+    rowCount
+  ),
+  ...createObjectField(
+    'severity_medium',
+    trivyFsData?.severity_medium?.length || 0,
+    rowCount
+  ),
+  ...createObjectField(
+    'severity_low',
+    trivyFsData?.severity_low?.length || 0,
+    rowCount
+  ),
+  ...sccColumns,
 };
-console.log(scc3);
-
-// const trivyFsJSON = await runTrivyFs(npmFolder);
-// console.log(trivyFsSummary(trivyFsJSON));
+console.log(sccColumnMerged);
