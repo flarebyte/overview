@@ -39,9 +39,48 @@ const mainVulnerabilityInfo = (vulnerability) => ({
   Severity: vulnerability.Severity,
 });
 
+function summariseVulnerabilities(vulnerabilities) {
+  const severityCounts = {
+    severity_high: {},
+    severity_medium: {},
+    severity_low: {},
+  };
+
+  vulnerabilities.forEach((vuln) => {
+    const severityKey = `severity_${vuln.Severity.toLowerCase()}`;
+    if (
+      ['severity_high', 'severity_medium', 'severity_low'].includes(severityKey)
+    ) {
+      if (severityCounts[severityKey]) {
+        if (severityCounts[severityKey][vuln.PkgName]) {
+          severityCounts[severityKey][vuln.PkgName]++;
+        } else {
+          severityCounts[severityKey][vuln.PkgName] = 1;
+        }
+      }
+    }
+  });
+
+  const formattedResults = {};
+
+  for (const severity in severityCounts) {
+    const packageCounts = severityCounts[severity];
+    const formattedPackages = [];
+    for (const pkgName in packageCounts) {
+      formattedPackages.push({ name: pkgName, count: packageCounts[pkgName] });
+    }
+    if (formattedPackages.length > 0) {
+      formattedResults[severity] = formattedPackages;
+    }
+  }
+
+  return formattedResults;
+}
+
+/** summarize vulnaribilities keep a count for each dependency*/
 export const trivyFsSummary = (content) => {
   const results = content.Results.flatMap((results) => results.Vulnerabilities)
     .filter((vulnerability) => vulnerability && vulnerability.Severity)
     .map(mainVulnerabilityInfo);
-  return results;
+  return summariseVulnerabilities(results);
 };
