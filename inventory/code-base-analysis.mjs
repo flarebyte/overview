@@ -1,8 +1,22 @@
+#!/usr/bin/env zx
+
 import {
   getRepos,
   resetTempFolder,
   cloneFlarebyteRepositories,
+  runScc,
+  runTrivyFs,
 } from './utility.mjs';
 
-const npmPackageRepo = await getRepos('npm-package');
-const folder = await resetTempFolder('npm-package');
+const npmFolder = '/tmp/overview/npm-package';
+
+// const npmPackageRepos = await getRepos('npm-package');
+// const folder = await resetTempFolder('npm-package');
+// console.log(`- Reset folder ${folder}`);
+
+// await cloneFlarebyteRepositories(folder, npmPackageRepos);
+
+// const sccJson = await runScc(npmFolder);
+
+const trivyFsJSON = await runTrivyFs(npmFolder);
+console.log(trivyFsJSON);
