@@ -133,3 +133,18 @@ export function convertToIndexedColumnsFormat(data) {
 
   return result;
 }
+
+export function createArrayField(field, value, count) {
+  const result = {};
+  const array = [];
+  for (let i = 0; i < count; i++) {
+    array.push(value);
+  }
+  result[field] = array;
+  return result;
+}
+
+export function getISODateString() {
+  const now = new Date();
+  return now.toISOString().split('T')[0];
+}

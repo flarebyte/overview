@@ -8,7 +8,9 @@ import {
   runTrivyFs,
   trivyFsSummary,
   simplifyScc,
-  convertToIndexedColumnsFormat
+  convertToIndexedColumnsFormat,
+  createArrayField,
+  getISODateString
 } from './utility.mjs';
 
 const npmFolder = '/tmp/overview/npm-package';
@@ -20,7 +22,9 @@ const npmFolder = '/tmp/overview/npm-package';
 // await cloneFlarebyteRepositories(folder, npmPackageRepos);
 
 const sccJson = await runScc(npmFolder);
-console.log(convertToIndexedColumnsFormat(simplifyScc(sccJson)));
+const scc2 = convertToIndexedColumnsFormat(simplifyScc(sccJson));
+const scc3 = {...createArrayField('Date', getISODateString(), 5), ...scc2};
+console.log(scc3);
 
 // const trivyFsJSON = await runTrivyFs(npmFolder);
 // console.log(trivyFsSummary(trivyFsJSON));
