@@ -134,17 +134,25 @@ export function convertToIndexedColumnsFormat(data) {
   return result;
 }
 
-export function createArrayField(field, value, count) {
+export function createObjectField(field, value, count) {
   const result = {};
-  const array = [];
+  const obj = {};
   for (let i = 0; i < count; i++) {
-    array.push(value);
+    obj[i] = value;
   }
-  result[field] = array;
+  result[field] = obj;
   return result;
 }
 
 export function getISODateString() {
   const now = new Date();
   return now.toISOString().split('T')[0];
+}
+
+export function getFieldLength(fieldObject) {
+  if (typeof fieldObject !== 'object' || fieldObject === null) {
+    return 0; // Handle cases where the input is not a valid object
+  }
+
+  return Object.keys(fieldObject).length;
 }
