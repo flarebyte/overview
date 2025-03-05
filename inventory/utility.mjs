@@ -91,3 +91,26 @@ export const simplifyScc = (items) =>
       (item) => !['License', 'gitignore', 'Plain Text'].includes(item.Name)
     )
     .filter((item) => item.Lines > 100);
+
+export function convertToIndexedColumnsFormat(data) {
+  if (!Array.isArray(data) || data.length === 0) {
+    return {};
+  }
+
+  const result = {};
+  const keys = Object.keys(data[0]);
+
+  for (const key of keys) {
+    result[key] = {};
+
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].hasOwnProperty(key)) {
+        result[key][i.toString()] = data[i][key];
+      } else {
+        result[key][i.toString()] = null;
+      }
+    }
+  }
+
+  return result;
+}

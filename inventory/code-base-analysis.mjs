@@ -7,7 +7,8 @@ import {
   runScc,
   runTrivyFs,
   trivyFsSummary,
-  simplifyScc
+  simplifyScc,
+  convertToIndexedColumnsFormat
 } from './utility.mjs';
 
 const npmFolder = '/tmp/overview/npm-package';
@@ -19,7 +20,7 @@ const npmFolder = '/tmp/overview/npm-package';
 // await cloneFlarebyteRepositories(folder, npmPackageRepos);
 
 const sccJson = await runScc(npmFolder);
-console.log(simplifyScc(sccJson));
+console.log(convertToIndexedColumnsFormat(simplifyScc(sccJson)));
 
 // const trivyFsJSON = await runTrivyFs(npmFolder);
 // console.log(trivyFsSummary(trivyFsJSON));
