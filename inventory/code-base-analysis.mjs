@@ -14,9 +14,11 @@ import {
   getFieldLength,
 } from './utility.mjs';
 
-const npmFolder = '/tmp/overview/npm-package';
 
-// const npmPackageRepos = await getRepos('npm-package');
+const topic = 'npm-package';
+const npmFolder = `/tmp/overview/${topic}`
+;
+const npmPackageRepos = await getRepos(topic);
 // const folder = await resetTempFolder('npm-package');
 // console.log(`- Reset folder ${folder}`);
 
@@ -33,6 +35,7 @@ const rowCount = getFieldLength(sccColumns.Name);
 const sccColumnMerged = {
   ...createObjectField('Date', getISODateString(), rowCount),
   ...createObjectField('Projects', countOfProjects, rowCount),
+  ...createObjectField('Category', topic, rowCount),
   ...createObjectField(
     'severity_high',
     trivyFsData?.severity_high?.length || 0,
