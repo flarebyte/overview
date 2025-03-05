@@ -33,3 +33,15 @@ export const runTrivyFs = async (folder) => {
   const sccResult = await $`trivy fs --format json . `;
   return JSON.parse(sccResult.stdout);
 };
+
+const mainVulnerabilityInfo = (vulnerability) => ({
+  PkgName: vulnerability.PkgName,
+  Severity: vulnerability.Severity,
+});
+
+export const trivyFsSummary = (content) => {
+  const results = content.Results.flatMap((results) => results.Vulnerabilities)
+    .filter((vulnerability) => vulnerability && vulnerability.Severity)
+    .map(mainVulnerabilityInfo);
+  return results;
+};
