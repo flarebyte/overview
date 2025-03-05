@@ -84,3 +84,10 @@ export const trivyFsSummary = (content) => {
     .map(mainVulnerabilityInfo);
   return summariseVulnerabilities(results);
 };
+
+export const simplifyScc = (items) =>
+  items
+    .filter(
+      (item) => !['License', 'gitignore', 'Plain Text'].includes(item.Name)
+    )
+    .filter((item) => item.Lines > 100);

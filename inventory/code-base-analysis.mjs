@@ -6,7 +6,8 @@ import {
   cloneFlarebyteRepositories,
   runScc,
   runTrivyFs,
-  trivyFsSummary
+  trivyFsSummary,
+  simplifyScc
 } from './utility.mjs';
 
 const npmFolder = '/tmp/overview/npm-package';
@@ -17,7 +18,8 @@ const npmFolder = '/tmp/overview/npm-package';
 
 // await cloneFlarebyteRepositories(folder, npmPackageRepos);
 
-// const sccJson = await runScc(npmFolder);
+const sccJson = await runScc(npmFolder);
+console.log(simplifyScc(sccJson));
 
-const trivyFsJSON = await runTrivyFs(npmFolder);
-console.log(trivyFsSummary(trivyFsJSON));
+// const trivyFsJSON = await runTrivyFs(npmFolder);
+// console.log(trivyFsSummary(trivyFsJSON));
