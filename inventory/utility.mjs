@@ -39,6 +39,24 @@ const mainVulnerabilityInfo = (vulnerability) => ({
   Severity: vulnerability.Severity,
 });
 
+function deleteKeysFromObject(obj, keysToDelete) {
+  if (!obj || typeof obj !== 'object') {
+    return obj;
+  }
+
+  if (!Array.isArray(keysToDelete)) {
+    keysToDelete = [keysToDelete];
+  }
+
+  const newObj = { ...obj };
+
+  for (const key of keysToDelete) {
+    delete newObj[key];
+  }
+
+  return newObj;
+}
+
 function summariseVulnerabilities(vulnerabilities) {
   const severityCounts = {
     severity_high: {},
@@ -90,7 +108,8 @@ export const simplifyScc = (items) =>
     .filter(
       (item) => !['License', 'gitignore', 'Plain Text'].includes(item.Name)
     )
-    .filter((item) => item.Lines > 100);
+    .filter((item) => item.Lines > 100)
+    .map((item) => deleteKeysFromObject(item, ['WeightedComplexity', 'Files']));
 
 export function convertToIndexedColumnsFormat(data) {
   if (!Array.isArray(data) || data.length === 0) {
