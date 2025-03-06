@@ -1,7 +1,28 @@
+/** Gets the number of days between the date and today */
+export function daysBetween(isoDateString) {
+  const inputDate = new Date(isoDateString);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set time to midnight
+
+  const differenceMs = today - inputDate;
+  const days = Math.round(differenceMs / (1000 * 60 * 60 * 24));
+  return days;
+}
+
+export const repoToRelativeDays = (obj) => {
+  const days = {
+    numberOfDaysSinceCreation: daysBetween(obj.createdAt),
+    numberOfDaysSinceUpdate: daysBetween(obj.updatedAt),
+  };
+  return { ...obj, ...days };
+};
+
+/** Gets all Github repos according gh */
 export const getRepos = async (topicName) => {
-  return JSON.parse(
-    await $`gh search repos --owner flarebyte --visibility public --topic ${topicName} --json name,description,updatedAt`
+  const repos = JSON.parse(
+    await $`gh search repos --owner flarebyte --visibility public --topic ${topicName} --json name,description,updatedAt,createdAt,size`
   );
+  return repos.map(repoToRelativeDays);
 };
 
 /** Empty the temporary folder */
