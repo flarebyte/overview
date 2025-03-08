@@ -10,9 +10,16 @@ export function daysBetween(isoDateString) {
 }
 
 export const repoToRelativeDays = (obj) => {
+  const numberOfDaysSinceCreation = daysBetween(obj.createdAt);
+  const numberOfDaysSinceUpdate = daysBetween(obj.updatedAt);
+  const numberOfDaysSincePush = daysBetween(obj.pushedAt);
+  const numberOfDaysOfActivity =
+    numberOfDaysSinceCreation - numberOfDaysSinceUpdate;
   const days = {
-    numberOfDaysSinceCreation: daysBetween(obj.createdAt),
-    numberOfDaysSinceUpdate: daysBetween(obj.updatedAt),
+    numberOfDaysSinceCreation,
+    numberOfDaysSinceUpdate,
+    numberOfDaysSincePush,
+    numberOfDaysOfActivity,
   };
   return { ...obj, ...days };
 };
@@ -20,7 +27,7 @@ export const repoToRelativeDays = (obj) => {
 /** Gets all Github repos according gh */
 export const getRepos = async (topicName) => {
   const repos = JSON.parse(
-    await $`gh search repos --owner flarebyte --visibility public --topic ${topicName} --json name,description,updatedAt,createdAt,size`
+    await $`gh search repos --owner flarebyte --visibility public --topic ${topicName} --json name,description,updatedAt,createdAt,pushedAt,size`
   );
   return repos.map(repoToRelativeDays);
 };
