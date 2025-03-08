@@ -16,7 +16,7 @@ import {
 
 /** Clone all the github projects for given topic*/
 const processRepositoriesByTopic = async (topic, options) => {
-  const npmFolder = `/tmp/overview/${topic}`;
+  const folder = `/tmp/overview/${topic}`;
   const npmPackageRepos = await getRepos(topic);
   const numberOfDaysSinceCreation = npmPackageRepos.map(
     (repo) => repo.numberOfDaysSinceCreation
@@ -30,16 +30,16 @@ const processRepositoriesByTopic = async (topic, options) => {
   const sizes = npmPackageRepos.map((repo) => repo.size);
 
   if (options.clone) {
-    await resetTempFolder('npm-package');
+    await resetTempFolder(topic);
     console.log(`- Reset folder ${folder}`);
 
     await cloneFlarebyteRepositories(folder, npmPackageRepos);
   }
-  const trivyFsJSON = await runTrivyFs(npmFolder);
+  const trivyFsJSON = await runTrivyFs(folder);
   const trivyFsData = trivyFsSummary(trivyFsJSON);
 
   const countOfProjects = 10;
-  const sccJson = await runScc(npmFolder);
+  const sccJson = await runScc(folder);
   const sccColumns = convertToIndexedColumnsFormat(simplifyScc(sccJson));
   const rowCount = getFieldLength(sccColumns.Name);
   const sccColumnMerged = {
@@ -88,3 +88,6 @@ const processRepositoriesByTopic = async (topic, options) => {
 };
 
 await processRepositoriesByTopic('npm-package', { clone: false });
+await processRepositoriesByTopic('npm-cli', { clone: false });
+await processRepositoriesByTopic('dart-package', { clone: true });
+await processRepositoriesByTopic('flutter-package', { clone: true });
