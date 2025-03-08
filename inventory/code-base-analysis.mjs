@@ -87,7 +87,7 @@ const processRepositoriesByTopic = async (topic, options) => {
   );
 };
 
-await processRepositoriesByTopic('npm-package', { clone: false });
-await processRepositoriesByTopic('npm-cli', { clone: false });
+await processRepositoriesByTopic('npm-package', { clone: true });
+await processRepositoriesByTopic('npm-cli', { clone: true });
 await processRepositoriesByTopic('dart-package', { clone: true });
 await processRepositoriesByTopic('flutter-package', { clone: true });

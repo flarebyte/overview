@@ -125,6 +125,9 @@ function summariseVulnerabilities(vulnerabilities) {
 
 /** summarize vulnaribilities keep a count for each dependency*/
 export const trivyFsSummary = (content) => {
+  if (!content.Results) {
+    return undefined;
+  }
   const results = content.Results.flatMap((results) => results.Vulnerabilities)
     .filter((vulnerability) => vulnerability && vulnerability.Severity)
     .map(mainVulnerabilityInfo);
