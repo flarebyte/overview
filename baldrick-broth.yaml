@@ -51,3 +51,10 @@ workflows:
           commands:
             - title: Run zx software-dependencies.mjs
               run: npx zx inventory/software-dependencies.mjs
+      stats:
+        title: Generate statistics data about the code base
+        description: Clone active public repositories and save statistical data
+        main:
+          commands:
+            - title: Run zx code-base-analysis.mjs
+              run: npx zx inventory/code-base-analysis.mjs
