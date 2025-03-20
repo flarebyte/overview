@@ -12,6 +12,7 @@ import {
   createObjectField,
   getISODateString,
   getFieldLength,
+  countTests,
 } from './utility.mjs';
 
 /** Clone all the github projects for given topic*/
@@ -42,6 +43,9 @@ const processRepositoriesByTopic = async (topic, options) => {
   const sccJson = await runScc(folder);
   const sccColumns = convertToIndexedColumnsFormat(simplifyScc(sccJson));
   const rowCount = getFieldLength(sccColumns.Name);
+
+  const numberOfTests = await countTests(folder);
+
   const sccColumnMerged = {
     ...createObjectField('Date', getISODateString(), rowCount),
     ...createObjectField('Projects', countOfProjects, rowCount),
@@ -78,6 +82,7 @@ const processRepositoriesByTopic = async (topic, options) => {
       rowCount
     ),
     ...sccColumns,
+    ...createObjectField('tests', numberOfTests, rowCount),
   };
 
   cd(process.env.PWD);
