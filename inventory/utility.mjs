@@ -187,3 +187,19 @@ export function getFieldLength(fieldObject) {
 
   return Object.keys(fieldObject).length;
 }
+
+/** Counts js, ts and dart unit tests */
+export const countTests = async (folder) => {
+  cd(folder);
+  const regexForTests = '^\\s*(test(?:.each)?|it)\\s*\\(\\s*[\'"].+?[\'"]\\s*,';
+  const testResult = await $`rg --json --stats ${regexForTests}`;
+  const jsonLines = testResult.stdout.split('\n');
+  const lastLine = jsonLines[jsonLines.length - 2];
+  const statsJson = JSON.parse(lastLine);
+  const {
+    data: {
+      stats: { matches },
+    },
+  } = statsJson;
+  return matches;
+};
