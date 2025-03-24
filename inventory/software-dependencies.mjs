@@ -21,6 +21,14 @@ const npmCliPackages = JSON.parse(
   await $`gh search repos --owner flarebyte --visibility public --topic npm-cli --json name,description`
 );
 
+const dartPackages = JSON.parse(
+  await $`gh search repos --owner flarebyte --visibility public --topic dart-package --json name,description`
+);
+
+const flutterPackages = JSON.parse(
+  await $`gh search repos --owner flarebyte --visibility public --topic flutter-package --json name,description`
+);
+
 const allNpmPackages = [...npmPackages, ...npmCliPackages];
 
 const getNpmInfo = async ({ name, description }) => {
@@ -143,6 +151,22 @@ const scoreCliTable = npmCliPackages
   )
   .join('\n');
 
+const scoreDartTable = dartPackages
+  .sort(sortedByNameAsc)
+  .map(
+    (row) =>
+      `| [${row.name}](https://github.com/flarebyte/${row.name}) | ${row.description} |`
+  )
+  .join('\n');
+
+const scoreFlutterTable = flutterPackages
+  .sort(sortedByNameAsc)
+  .map(
+    (row) =>
+      `| [${row.name}](https://github.com/flarebyte/${row.name}) | ${row.description} |`
+  )
+  .join('\n');
+
 const mdReport = `
 # Software dependencies
 
@@ -177,6 +201,18 @@ ${scoreLibTable}
 | Name | Description |
 |------| ------------|
 ${scoreCliTable}
+
+## Flutter libraries
+
+| Name | Description |
+|------| ------------|
+${scoreFlutterTable}
+
+## Dart libraries
+
+| Name | Description |
+|------| ------------|
+${scoreDartTable}
 `;
 
 await fs.writeFile('README.md', mdReadme, { encoding: 'utf8' });
