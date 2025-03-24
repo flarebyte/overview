@@ -51,10 +51,17 @@ workflows:
           commands:
             - title: Run zx software-dependencies.mjs
               run: npx zx inventory/software-dependencies.mjs
+      readme:
+        title: Generate README.md
+        description: Generate the readme with an overview of all the dependencies created
+        main:
+          commands:
+            - title: Run zx readme.mjs
+              run: npx zx inventory/readme.mjs
       stats:
         title: Generate statistics data about the code base
         description: Clone active public repositories and save statistical data
         main:
           commands:
             - title: Run zx code-base-analysis.mjs
-              run: npx zx inventory/code-base-analysis.mjs
+              run: echo 'Run the following => npx zx inventory/code-base-analysis.mjs'

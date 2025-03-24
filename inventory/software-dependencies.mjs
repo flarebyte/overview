@@ -21,11 +21,24 @@ const npmCliPackages = JSON.parse(
   await $`gh search repos --owner flarebyte --visibility public --topic npm-cli --json name,description`
 );
 
+const dartPackages = JSON.parse(
+  await $`gh search repos --owner flarebyte --visibility public --topic dart-package --json name,description`
+);
+
+const flutterPackages = JSON.parse(
+  await $`gh search repos --owner flarebyte --visibility public --topic flutter-package --json name,description`
+);
+
 const allNpmPackages = [...npmPackages, ...npmCliPackages];
 
 const getNpmInfo = async ({ name, description }) => {
-  const dependenciesJson = await $`npm info ${name} --json dependencies`;
-  const dependencies = Object.keys(safeParse(dependenciesJson));
+  let dependencies = [];
+  try {
+    const dependenciesJson = await $`npm info ${name} --json dependencies`;
+    dependencies = Object.keys(safeParse(dependenciesJson));
+  } catch (error) {
+    console.info(`Could not find npm info for ${name}`);
+  }
 
   return {
     name,
@@ -77,8 +90,6 @@ const countDependencies = (listOfNpmDependencies) => {
     .map((kv) => ({ name: kv[0], count: kv[1] }))
     .sort(sortedByNameAsc);
 };
-
-const codeMarker = (tag) => '```' + tag;
 
 const scoreRows = countDependencies(npmDependencies);
 const childNpmDependencies = await Promise.all(
@@ -143,6 +154,22 @@ const scoreCliTable = npmCliPackages
   )
   .join('\n');
 
+const scoreDartTable = dartPackages
+  .sort(sortedByNameAsc)
+  .map(
+    (row) =>
+      `| [${row.name}](https://github.com/flarebyte/${row.name}) | ${row.description} |`
+  )
+  .join('\n');
+
+const scoreFlutterTable = flutterPackages
+  .sort(sortedByNameAsc)
+  .map(
+    (row) =>
+      `| [${row.name}](https://github.com/flarebyte/${row.name}) | ${row.description} |`
+  )
+  .join('\n');
+
 const mdReport = `
 # Software dependencies
 
@@ -156,27 +183,3 @@ ${scoreDepsTable}
 `;
 
 await fs.writeFile('SOFTWARE-DEPENDENCIES.md', mdReport, { encoding: 'utf8' });
-
-const mdReadme = `
-# Overview
-
-> Overview of Flarebyte.com codebase
-
-* [Software health](SOFTWARE-HEALTH.md)
-* [Software timeline](./SOFTWARE-TIMELINE.md)
-* [Software dependencies](./SOFTWARE-DEPENDENCIES.md)
-
-## Typescript/Javascript libraries
-
-| Name | Description |
-|------| ------------|
-${scoreLibTable}
-
-## Typescript/Javascript CLI
-
-| Name | Description |
-|------| ------------|
-${scoreCliTable}
-`;
-
-await fs.writeFile('README.md', mdReadme, { encoding: 'utf8' });

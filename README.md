@@ -8,20 +8,22 @@
 
 ## Typescript/Javascript libraries
 
-| Name                                                                            | Description                                                                                  |
-| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| [baldrick-zest-engine](https://github.com/flarebyte/baldrick-zest-engine)       | Run tests declaratively                                                                      |
-| [baldrick-zest-mess](https://github.com/flarebyte/baldrick-zest-mess)           | Useful utilities for the zest unit test framework                                            |
-| [confiture](https://github.com/flarebyte/confiture)                             | Configuration library supporting json-schema                                                 |
-| [fairlie-functional](https://github.com/flarebyte/fairlie-functional)           | A lightweight functional library in typescript that helps dealing with failures the rail way |
-| [faora-kai](https://github.com/flarebyte/faora-kai)                             | The Zod helper library, because sometimes you need a little help from a Kryptonian           |
-| [json-commander](https://github.com/flarebyte/json-commander)                   | Commands generator for the update of json documents                                          |
-| [lunar-diamond-engraving](https://github.com/flarebyte/lunar-diamond-engraving) | Engrave your records in the ultimate space-time capsule                                      |
-| [lunar-obsidian-crypt](https://github.com/flarebyte/lunar-obsidian-crypt)       | The easiest way to encrypt your data with TypeScript on the server side                      |
-| [object-crumble](https://github.com/flarebyte/object-crumble)                   | Creative ways to cook your object                                                            |
-| [pick-alternate-value](https://github.com/flarebyte/pick-alternate-value)       | Pick the most suitable value from a list of possible values                                  |
-| [scratchbook](https://github.com/flarebyte/scratchbook)                         | Annotation library in Typescript for documentation                                           |
-| [solace](https://github.com/flarebyte/solace)                                   | Alternative to console log which automatically beautifies the output                         |
+| Name                                                                                | Description                                                                                                        |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [baldrick-zest-engine](https://github.com/flarebyte/baldrick-zest-engine)           | Run tests declaratively                                                                                            |
+| [baldrick-zest-mess](https://github.com/flarebyte/baldrick-zest-mess)               | Useful utilities for the zest unit test framework                                                                  |
+| [confiture](https://github.com/flarebyte/confiture)                                 | Configuration library supporting json-schema                                                                       |
+| [fairlie-functional](https://github.com/flarebyte/fairlie-functional)               | A lightweight functional library in typescript that helps dealing with failures the rail way                       |
+| [faora-kai](https://github.com/flarebyte/faora-kai)                                 | The Zod helper library, because sometimes you need a little help from a Kryptonian                                 |
+| [incy-wincy-code-bite](https://github.com/flarebyte/incy-wincy-code-bite)           | The perfect code snack in typescript                                                                               |
+| [json-commander](https://github.com/flarebyte/json-commander)                       | Commands generator for the update of json documents                                                                |
+| [lunar-diamond-engraving](https://github.com/flarebyte/lunar-diamond-engraving)     | Engrave your records in the ultimate space-time capsule                                                            |
+| [lunar-multiple-prism-beam](https://github.com/flarebyte/lunar-multiple-prism-beam) | Split and merge objects like a prism with Lunar Multiple Prism Beam, a Typescript library for payload manipulation |
+| [lunar-obsidian-crypt](https://github.com/flarebyte/lunar-obsidian-crypt)           | The easiest way to encrypt your data with TypeScript on the server side                                            |
+| [object-crumble](https://github.com/flarebyte/object-crumble)                       | Creative ways to cook your object                                                                                  |
+| [pick-alternate-value](https://github.com/flarebyte/pick-alternate-value)           | Pick the most suitable value from a list of possible values                                                        |
+| [scratchbook](https://github.com/flarebyte/scratchbook)                             | Annotation library in Typescript for documentation                                                                 |
+| [solace](https://github.com/flarebyte/solace)                                       | Alternative to console log which automatically beautifies the output                                               |
 
 ## Typescript/Javascript CLI
 
@@ -37,3 +39,24 @@
 | [baldrick-whisker](https://github.com/flarebyte/baldrick-whisker)       | Code generator for Elm and Typescript using templates                  |
 | [dazzling-fiction](https://github.com/flarebyte/dazzling-fiction)       | Fictional facts generator based on a given input                       |
 | [pico-accountancy](https://github.com/flarebyte/pico-accountancy)       | Very basic accountancy script for very simple accounts                 |
+
+## Flutter libraries
+
+| Name                                                                              | Description                                     |
+| --------------------------------------------------------------------------------- | ----------------------------------------------- |
+| [document\_slot\_bubblegum](https://github.com/flarebyte/document_slot_bubblegum) | Tiny windows for big infos in Flutter           |
+| [message\_copperframe](https://github.com/flarebyte/message_copperframe)          | Delivering impactful messages to your dashboard |
+| [message\_slot\_bubblegum](https://github.com/flarebyte/message_slot_bubblegum)   | Flutter widget to help you pop your messages    |
+| [preview\_slot\_bubblegum](https://github.com/flarebyte/preview_slot_bubblegum)   | Document Preview, Sweetened and Simplified      |
+| [slotboard\_copperframe](https://github.com/flarebyte/slotboard_copperframe)      | Slot it, sort it, sit back and relax            |
+
+## Dart libraries
+
+| Name                                                                 | Description                                                                  |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [boolean\_rhapsody](https://github.com/flarebyte/boolean_rhapsody)   | Tune into the truth with Boolean Rhapsody in Dart                            |
+| [delimatrix\_dart](https://github.com/flarebyte/delimatrix_dart)     | Delimatrix Dart transforms strings to objects and back with a touch of magic |
+| [eagleyeix](https://github.com/flarebyte/eagleyeix)                  | Eagleyeix the Dart library for sharper observations and smarter reactions    |
+| [grand\_copperframe](https://github.com/flarebyte/grand_copperframe) | The higher level data model for copperframe                                  |
+| [text\_copperframe](https://github.com/flarebyte/text_copperframe)   | The versatile text field for every design                                    |
+| [validomix](https://github.com/flarebyte/validomix)                  | From Strings to Objects Validomix validates all                              |
