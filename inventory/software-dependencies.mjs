@@ -32,8 +32,13 @@ const flutterPackages = JSON.parse(
 const allNpmPackages = [...npmPackages, ...npmCliPackages];
 
 const getNpmInfo = async ({ name, description }) => {
-  const dependenciesJson = await $`npm info ${name} --json dependencies`;
-  const dependencies = Object.keys(safeParse(dependenciesJson));
+  let dependencies = [];
+  try {
+    const dependenciesJson = await $`npm info ${name} --json dependencies`;
+    dependencies = Object.keys(safeParse(dependenciesJson));
+  } catch (error) {
+    console.info(`Could not find npm info for ${name}`);
+  }
 
   return {
     name,
