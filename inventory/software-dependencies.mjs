@@ -86,8 +86,6 @@ const countDependencies = (listOfNpmDependencies) => {
     .sort(sortedByNameAsc);
 };
 
-const codeMarker = (tag) => '```' + tag;
-
 const scoreRows = countDependencies(npmDependencies);
 const childNpmDependencies = await Promise.all(
   scoreRows.map((row) => getNpmInfoForLib(row))
@@ -180,39 +178,3 @@ ${scoreDepsTable}
 `;
 
 await fs.writeFile('SOFTWARE-DEPENDENCIES.md', mdReport, { encoding: 'utf8' });
-
-const mdReadme = `
-# Overview
-
-> Overview of Flarebyte.com codebase
-
-* [Software health](SOFTWARE-HEALTH.md)
-* [Software timeline](./SOFTWARE-TIMELINE.md)
-* [Software dependencies](./SOFTWARE-DEPENDENCIES.md)
-
-## Typescript/Javascript libraries
-
-| Name | Description |
-|------| ------------|
-${scoreLibTable}
-
-## Typescript/Javascript CLI
-
-| Name | Description |
-|------| ------------|
-${scoreCliTable}
-
-## Flutter libraries
-
-| Name | Description |
-|------| ------------|
-${scoreFlutterTable}
-
-## Dart libraries
-
-| Name | Description |
-|------| ------------|
-${scoreDartTable}
-`;
-
-await fs.writeFile('README.md', mdReadme, { encoding: 'utf8' });

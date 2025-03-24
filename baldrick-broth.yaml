@@ -64,4 +64,4 @@ workflows:
         main:
           commands:
             - title: Run zx code-base-analysis.mjs
-              run: npx zx inventory/code-base-analysis.mjs
+              run: echo 'Run the following => npx zx inventory/code-base-analysis.mjs'
