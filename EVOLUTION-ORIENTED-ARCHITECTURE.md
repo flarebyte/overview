@@ -25,5 +25,5 @@
 7. **Paradigm-Agnostic Architecture**  
    Whether functional or OO, design for composability, encapsulation, and independence.
 
-8. **Empower Forward-Thinking, Not Premature Over-Engineering**  
-   Think ahead, but build only what you can justify today. Prepare the soil without planting every seed.
+8. **Think in Futures — Bet with Purpose**  
+   Don’t just prepare for change — explore the landscape of possible futures and place deliberate bets.
