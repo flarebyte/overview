@@ -1,5 +1,7 @@
 # Evolution Oriented Architecture (EOA)
 
+![Evolution Oriented Architecture illustration](./evolution-oriented-architecture.png)
+
 ## Evolution-Oriented Architecture: The Principles
 
 1. **Change Is Inevitable — Plan for It**  
