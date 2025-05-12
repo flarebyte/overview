@@ -30,6 +30,10 @@ mindmap
        Communication
        Respect
        Empathy
+    Problem-solving excellence
+       Decomposition
+       Experimentation
+       Continuous improvement
 ```
 
 ```mermaid
@@ -64,12 +68,12 @@ business, and our technology. We welcome change and learn from it.
 
 We value:
 
--   Continuous improvement: We strive to make our software better every
-    day.
--   Feedback: We listen to what our users and stakeholders tell us about
-    our software and act on it.
--   Adaptability: We are flexible and ready to adjust to new situations and
-    requirements.
+- Continuous improvement: We strive to make our software better every
+  day.
+- Feedback: We listen to what our users and stakeholders tell us about
+  our software and act on it.
+- Adaptability: We are flexible and ready to adjust to new situations and
+  requirements.
 
 ## Innovation :rocket:
 
@@ -79,12 +83,12 @@ learn from our successes and failures.
 
 We value:
 
--   Creativity: We use our imagination and skills to create original and
-    useful software.
--   Experimentation: We test our ideas and hypotheses in a safe and
-    controlled way.
--   Learning: We reflect on our experiences and apply our learnings to
-    improve our software.
+- Creativity: We use our imagination and skills to create original and
+  useful software.
+- Experimentation: We test our ideas and hypotheses in a safe and
+  controlled way.
+- Learning: We reflect on our experiences and apply our learnings to
+  improve our software.
 
 ## Risk management
 
@@ -93,11 +97,11 @@ options and make informed decisions. We reduce risks and increase rewards.
 
 We value:
 
--   Planning: We think ahead and prepare for different scenarios.
--   Assessment: We evaluate the potential impact of our actions and
-    choices.
--   Decision-making: We use data and logic to make the best decisions for
-    our software.
+- Planning: We think ahead and prepare for different scenarios.
+- Assessment: We evaluate the potential impact of our actions and
+  choices.
+- Decision-making: We use data and logic to make the best decisions for
+  our software.
 
 ## Defect detection 🔎🐛
 
@@ -106,12 +110,12 @@ and continuously. We prevent bugs from causing more problems.
 
 We value:
 
--   Quality: We ensure that our software meets high standards of
-    functionality, reliability, usability, and security.
--   Testing: We use various methods and tools to check the quality of our
-    software at every stage of development.
--   Improvement: We fix defects quickly and prevent them from happening
-    again.
+- Quality: We ensure that our software meets high standards of
+  functionality, reliability, usability, and security.
+- Testing: We use various methods and tools to check the quality of our
+  software at every stage of development.
+- Improvement: We fix defects quickly and prevent them from happening
+  again.
 
 ## Multiple axis concerns 📊📈📉📅
 
@@ -122,11 +126,11 @@ with our goals.
 
 We value:
 
--   Holism: We look at the big picture and how all the parts fit together.
--   Balance: We weigh the importance of each aspect and prioritize
-    accordingly.
--   Alignment: We ensure that all aspects of our software are consistent
-    with our vision and objectives.
+- Holism: We look at the big picture and how all the parts fit together.
+- Balance: We weigh the importance of each aspect and prioritize
+  accordingly.
+- Alignment: We ensure that all aspects of our software are consistent
+  with our vision and objectives.
 
 ## Designer and engineer proficiency 🏆👏
 
@@ -136,12 +140,12 @@ craft.
 
 We value:
 
--   Collaboration: We work together and support each other in achieving our
-    goals.
--   Knowledge sharing: We exchange information and insights with each other
-    to increase our collective wisdom.
--   Learning: We seek new opportunities to learn new skills and
-    technologies.
+- Collaboration: We work together and support each other in achieving our
+  goals.
+- Knowledge sharing: We exchange information and insights with each other
+  to increase our collective wisdom.
+- Learning: We seek new opportunities to learn new skills and
+  technologies.
 
 ## Designer and engineer feedback loop 🔄👩‍💻
 
@@ -151,12 +155,12 @@ of our changes.
 
 We value:
 
--   Communication: We communicate clearly and effectively with each other
-    and with external parties.
--   Feedback: We solicit, receive, and give constructive feedback to
-    improve our software.
--   Improvement: We implement feedback and track the results of our
-    changes.
+- Communication: We communicate clearly and effectively with each other
+  and with external parties.
+- Feedback: We solicit, receive, and give constructive feedback to
+  improve our software.
+- Improvement: We implement feedback and track the results of our
+  changes.
 
 ## Designer and engineer assistance 🙋‍♀️👩‍💻
 
@@ -166,12 +170,12 @@ and avoid reinventing the wheel.
 
 We value:
 
--   Automation: We use technology to perform tasks that can be done faster
-    or better by machines.
--   Simplification: We make complex tasks easier by breaking them down into
-    smaller steps or using simpler methods.
--   Reuse: We use existing solutions that have been proven to work well for
-    similar problems.
+- Automation: We use technology to perform tasks that can be done faster
+  or better by machines.
+- Simplification: We make complex tasks easier by breaking them down into
+  smaller steps or using simpler methods.
+- Reuse: We use existing solutions that have been proven to work well for
+  similar problems.
 
 ## Collaboration 👥
 
@@ -181,9 +185,19 @@ together towards a common vision.
 
 We value:
 
--   Teamwork: We cooperate with each other and leverage each other's
-    strengths.
--   Communication: We communicate clearly, respectfully, and frequently
-    with each other.
--   Respect: We treat each other with dignity and appreciation.
--   Empathy: We understand each other's feelings, perspectives, and needs.
+- Teamwork: We cooperate with each other and leverage each other's
+  strengths.
+- Communication: We communicate clearly, respectfully, and frequently
+  with each other.
+- Respect: We treat each other with dignity and appreciation.
+- Empathy: We understand each other's feelings, perspectives, and needs.
+
+## Problem-solving excellence
+
+We strive for excellence in solving problems. We break complex challenges into manageable parts and explore solutions through iteration and experimentation. We value both structure and creativity.
+
+We value:
+
+- Decomposition: We break problems into smaller, solvable pieces to gain clarity and direction.
+- Experimentation: We learn through trial and error, testing ideas to discover what works best.
+- Continuous improvement: We refine our solutions over time, embracing feedback and new insights.
