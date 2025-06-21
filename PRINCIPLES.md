@@ -21,6 +21,7 @@ mindmap
         Communication
         Feedback
         Improvement
+        Timely action
     Assistance
         Automation
         Simplification
@@ -32,6 +33,7 @@ mindmap
        Empathy
     Problem-solving excellence
        Decomposition
+       Abstraction
        Experimentation
        Continuous improvement
 ```
