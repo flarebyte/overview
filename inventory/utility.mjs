@@ -203,3 +203,10 @@ export const countTests = async (folder) => {
   } = statsJson;
   return matches;
 };
+
+/** Run clingy command on the given folder */
+export const runClingy = async (folder) => {
+  cd(folder);
+  const clingyResult = await $`clingy --json --include dart,go --aggregate .`;
+  return JSON.parse(clingyResult.stdout);
+};
