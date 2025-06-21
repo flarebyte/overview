@@ -17,6 +17,10 @@ const flutterPackages = JSON.parse(
   await $`gh search repos --owner flarebyte --visibility public --topic flutter-package --json name,description`
 );
 
+const goCliPackages = JSON.parse(
+  await $`gh search repos --owner flarebyte --visibility public --topic go-cli --json name,description`
+);
+
 const sortedByNameAsc = (a, b) => {
   if (a.name > b.name) return 1;
   if (a.name < b.name) return -1;
@@ -55,6 +59,14 @@ const scoreFlutterTable = flutterPackages
   )
   .join('\n');
 
+const scoreGoCliTable = goCliPackages
+  .sort(sortedByNameAsc)
+  .map(
+    (row) =>
+      `| [${row.name}](https://github.com/flarebyte/${row.name}) | ${row.description} |`
+  )
+  .join('\n');
+
 const mdReadme = `
 # Overview
 
@@ -62,7 +74,8 @@ const mdReadme = `
 
 * [Software health](SOFTWARE-HEALTH.md)
 * [Software timeline](./SOFTWARE-TIMELINE.md)
-* [Software dependencies](./SOFTWARE-DEPENDENCIES.md)
+* [NPM Software dependencies](./NPM-SOFTWARE-DEPENDENCIES.md)
+* [Other Software dependencies](./OTHER-SOFTWARE-DEPENDENCIES.md)
 
 ## Typescript/Javascript libraries
 
@@ -87,6 +100,12 @@ ${scoreFlutterTable}
 | Name | Description |
 |------| ------------|
 ${scoreDartTable}
+
+## Go CLI
+
+| Name | Description |
+|------| ------------|
+${scoreGoCliTable}
 `;
 
 await fs.writeFile('README.md', mdReadme, { encoding: 'utf8' });

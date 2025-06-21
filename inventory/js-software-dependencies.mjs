@@ -21,13 +21,6 @@ const npmCliPackages = JSON.parse(
   await $`gh search repos --owner flarebyte --visibility public --topic npm-cli --json name,description`
 );
 
-const dartPackages = JSON.parse(
-  await $`gh search repos --owner flarebyte --visibility public --topic dart-package --json name,description`
-);
-
-const flutterPackages = JSON.parse(
-  await $`gh search repos --owner flarebyte --visibility public --topic flutter-package --json name,description`
-);
 
 const allNpmPackages = [...npmPackages, ...npmCliPackages];
 
@@ -182,4 +175,4 @@ const mdReport = `
 ${scoreDepsTable}
 `;
 
-await fs.writeFile('SOFTWARE-DEPENDENCIES.md', mdReport, { encoding: 'utf8' });
+await fs.writeFile('NPM-SOFTWARE-DEPENDENCIES.md', mdReport, { encoding: 'utf8' });
