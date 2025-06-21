@@ -147,21 +147,6 @@ const scoreCliTable = npmCliPackages
   )
   .join('\n');
 
-const scoreDartTable = dartPackages
-  .sort(sortedByNameAsc)
-  .map(
-    (row) =>
-      `| [${row.name}](https://github.com/flarebyte/${row.name}) | ${row.description} |`
-  )
-  .join('\n');
-
-const scoreFlutterTable = flutterPackages
-  .sort(sortedByNameAsc)
-  .map(
-    (row) =>
-      `| [${row.name}](https://github.com/flarebyte/${row.name}) | ${row.description} |`
-  )
-  .join('\n');
 
 const mdReport = `
 # Software dependencies

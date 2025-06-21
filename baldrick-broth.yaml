@@ -49,8 +49,8 @@ workflows:
         description: Generate software dependencies report
         main:
           commands:
-            - title: Run zx software-dependencies.mjs
-              run: npx zx inventory/software-dependencies.mjs
+            - title: Run zx js-software-dependencies.mjs
+              run: npx zx inventory/js-software-dependencies.mjs
       readme:
         title: Generate README.md
         description: Generate the readme with an overview of all the dependencies created
