@@ -21,8 +21,8 @@ journey
     architecture: 0: Team
     brainstorming: 0: Team
     code: 2: Team
-    deps: 0: Team
-    diagram: 1: Team
+    deps: 1: Team
+    diagram: 2: Team
     doc: 2: Team
     ops: 0: Team
     specs: 0: Team
@@ -48,12 +48,12 @@ journey
 | code linting                        |       | 1    |
 | code readibility                    |       | 0    |
 | code refactoring                    |       | 0    |
-| deps audit                          |       | 0    |
+| deps audit                          | ✰     | 2    |
 | deps diagram                        |       | 0    |
 | deps update                         |       | 0    |
 | diagram architecture                |       | 0    |
 | diagram class                       |       | 0    |
-| diagram dependencies                | ✰     | 2    |
+| diagram dependencies                | ✰✰    | 4    |
 | diagram flow                        |       | 0    |
 | diagram mindmap                     |       | 0    |
 | diagram sequence                    |       | 0    |
