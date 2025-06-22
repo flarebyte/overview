@@ -191,8 +191,10 @@ export function getFieldLength(fieldObject) {
 /** Counts js, ts and dart unit tests */
 export const countTests = async (folder) => {
   cd(folder);
-  const regexForTests = '^\\s*(test(?:.each)?|it)\\s*\\(\\s*[\'"].+?[\'"]\\s*,';
-  const testResult = await $`rg --json --stats ${regexForTests}`;
+  const regexForTsTests = '^\\s*(test(?:.each)?|it)\\s*\\(\\s*[\'"].+?[\'"]\\s*,';
+  const regexForGoTests = '^func\\s+Test\\w+\\s*\\(\\s*t\\s+\\*testing\\.T\\s*\\)'
+  
+  const testResult = await $`rg --json --stats -e ${regexForTsTests} -e ${regexForGoTests}`;
   const jsonLines = testResult.stdout.split('\n');
   const lastLine = jsonLines[jsonLines.length - 2];
   const statsJson = JSON.parse(lastLine);
