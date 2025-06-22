@@ -13,6 +13,8 @@ import {
   getISODateString,
   getFieldLength,
   countTests,
+  runClingy,
+  runClingyAggregate,
 } from './utility.mjs';
 
 /** Clone all the github projects for given topic*/
@@ -38,7 +40,7 @@ const processRepositoriesByTopic = async (topic, options) => {
   }
   const trivyFsJSON = await runTrivyFs(folder);
   const trivyFsData = trivyFsSummary(trivyFsJSON);
-
+  // scc
   const countOfProjects = 10;
   const sccJson = await runScc(folder);
   const sccColumns = convertToIndexedColumnsFormat(simplifyScc(sccJson));
@@ -85,11 +87,17 @@ const processRepositoriesByTopic = async (topic, options) => {
     ...createObjectField('tests', numberOfTests, rowCount),
   };
 
+  const clingyJson = await runClingy(folder);
+  const clingyAggregateJson = await runClingyAggregate(folder);
+
   cd(process.env.PWD);
   await fs.writeJson(
     `./data/${topic}-${getISODateString()}.json`,
     sccColumnMerged
   );
+
+  await fs.writeJson(`./${topic}-clingy.json`, clingyJson);
+  await fs.writeJson(`./${topic}-clingy-aggregate.json`, clingyAggregateJson);
 };
 
 await processRepositoriesByTopic('npm-package', { clone: true });

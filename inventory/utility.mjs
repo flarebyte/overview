@@ -207,6 +207,13 @@ export const countTests = async (folder) => {
 /** Run clingy command on the given folder */
 export const runClingy = async (folder) => {
   cd(folder);
-  const clingyResult = await $`clingy --json --include dart,go --aggregate .`;
+  const clingyResult = await $`clingy --json .`;
+  return JSON.parse(clingyResult.stdout);
+};
+
+/** Run clingy aggregate command on the given folder */
+export const runClingyAggregate = async (folder) => {
+  cd(folder);
+  const clingyResult = await $`clingy --json --aggregate .`;
   return JSON.parse(clingyResult.stdout);
 };
