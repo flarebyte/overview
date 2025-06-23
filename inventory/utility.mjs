@@ -241,3 +241,22 @@ export async function loadClingyByTopicJson(topic, suffix = '') {
     return [];
   }
 }
+
+export function addProjectFromPath(entry) {
+  if (!entry?.Path || typeof entry.Path !== 'string') {
+    console.error(chalk.red('✖ Error: Missing or invalid "Path" field in entry.'));
+    return entry;
+  }
+
+  const project = entry.Path.split('/')[0];
+
+  if (!project) {
+    console.warn(chalk.yellow(`⚠ Warning: Could not extract project from Path: '${entry.Path}'`));
+  }
+
+  return {
+    ...entry,
+    project,
+  };
+}
+

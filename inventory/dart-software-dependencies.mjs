@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 $.verbose = false;
-import { loadClingyByTopicJson } from './utility.mjs';
+import { loadClingyByTopicJson, addProjectFromPath } from './utility.mjs';
 
 const today = new Date();
 
@@ -52,9 +52,8 @@ const dartPackage = await loadClingyByTopicJson('dart-package');
 const dartPackageAggregate = await loadClingyByTopicJson('dart-package', '-aggregate');
 const flutterPackage = await loadClingyByTopicJson('flutter-package');
 const flutterPackageAggregate = await loadClingyByTopicJson('flutter-package', '-aggregate');
-
-console.log(dartPackage, dartPackageAggregate, flutterPackage, flutterPackageAggregate)
-
+const dartAndFlutterPackages = [...dartPackage, ...flutterPackage].map(addProjectFromPath)
+console.log(dartAndFlutterPackages)
 
 // const packageInfo = await fetchPubPackage({ name: 'http', count: 1 });
 // console.log(packageInfo);
