@@ -278,4 +278,3 @@ export function extractProjectSet(entries = []) {
 
   return projectSet;
 }
-

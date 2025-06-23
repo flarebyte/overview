@@ -52,21 +52,41 @@ export async function fetchPubPackage({ name, count }) {
   }
 }
 
-const dartPackage = await loadClingyByTopicJson('dart-package');
+const dartPackage = (await loadClingyByTopicJson('dart-package')).map(
+  addProjectFromPath
+);
 const dartPackageAggregate = await loadClingyByTopicJson(
   'dart-package',
   '-aggregate'
 );
-const flutterPackage = await loadClingyByTopicJson('flutter-package');
+const flutterPackage = (await loadClingyByTopicJson('flutter-package')).map(
+  addProjectFromPath
+);
 const flutterPackageAggregate = await loadClingyByTopicJson(
   'flutter-package',
   '-aggregate'
 );
-const dartAndFlutterPackages = [...dartPackage, ...flutterPackage].map(
-  addProjectFromPath
-);
+const dartAndFlutterPackages = [...dartPackage, ...flutterPackage];
 const projects = extractProjectSet(dartAndFlutterPackages);
-console.log(projects);
+
+export function packageInfoToEdges() {
+  const edges = [];
+  for (const dartPack of dartPackage) {
+    const { Name, project } = dartPack;
+    if (!projects.has(Name)) continue;
+    edges.push({ from: project, to: Name, projectType: 'dart' });
+  }
+  for (const flutterPack of flutterPackage) {
+    const { Name, project } = flutterPack;
+    if (!projects.has(Name)) continue;
+    edges.push({ from: project, to: Name, projectType: 'flutter' });
+  }
+
+  return edges;
+}
+
+const diagramEdges = packageInfoToEdges();
+console.log(diagramEdges);
 
 // const packageInfo = await fetchPubPackage({ name: 'http', count: 1 });
 // console.log(packageInfo);
