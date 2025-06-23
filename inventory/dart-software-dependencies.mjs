@@ -1,5 +1,6 @@
 #!/usr/bin/env zx
 $.verbose = false;
+import { loadClingyByTopicJson } from './utility.mjs';
 
 const today = new Date();
 
@@ -8,7 +9,7 @@ const today = new Date();
  * @param {string} name - The pub.dev package name.
  * @returns {Promise<object|undefined>} JSON response or undefined if failed.
  */
-export async function fetchPubPackage ({ name, count }){
+export async function fetchPubPackage({ name, count }) {
   const url = `https://pub.dev/api/packages/${name}`;
   try {
     const response = await fetch(url);
@@ -47,5 +48,13 @@ export async function fetchPubPackage ({ name, count }){
   }
 }
 
-const packageInfo = await fetchPubPackage({name: 'http', count: 1});
-console.log(packageInfo);
+const dartPackage = await loadClingyByTopicJson('dart-package');
+const dartPackageAggregate = await loadClingyByTopicJson('dart-package', '-aggregate');
+const flutterPackage = await loadClingyByTopicJson('flutter-package');
+const flutterPackageAggregate = await loadClingyByTopicJson('flutter-package', '-aggregate');
+
+console.log(dartPackage, dartPackageAggregate, flutterPackage, flutterPackageAggregate)
+
+
+// const packageInfo = await fetchPubPackage({ name: 'http', count: 1 });
+// console.log(packageInfo);

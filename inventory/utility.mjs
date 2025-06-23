@@ -219,3 +219,25 @@ export const runClingyAggregate = async (folder) => {
   const clingyResult = await $`clingy --json --aggregate .`;
   return JSON.parse(clingyResult.stdout);
 };
+
+export async function loadClingyByTopicJson(topic, suffix = '') {
+  const filename = `${topic}-clingy${suffix}.json`;
+
+  if (!(await fs.exists(filename))) {
+    console.error(chalk.red(`✖ Error: File '${filename}' not found.`));
+    return [];
+  }
+
+  try {
+    const content = await fs.readFile(filename, 'utf-8');
+    const parsed = JSON.parse(content);
+    if (!Array.isArray(parsed)) {
+      console.warn(chalk.yellow(`⚠ Warning: '${filename}' does not contain an array.`));
+      return [];
+    }
+    return parsed;
+  } catch (err) {
+    console.error(chalk.red(`✖ Error reading or parsing '${filename}': ${err.message}`));
+    return [];
+  }
+}
