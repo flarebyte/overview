@@ -260,3 +260,22 @@ export function addProjectFromPath(entry) {
   };
 }
 
+export function extractProjectSet(entries = []) {
+  if (!Array.isArray(entries)) {
+    console.error(chalk.red('✖ Error: Expected an array of entries.'));
+    return new Set();
+  }
+
+  const projectSet = new Set();
+
+  for (const entry of entries) {
+    if (entry?.project) {
+      projectSet.add(entry.project);
+    } else {
+      console.warn(chalk.yellow(`⚠ Warning: Entry missing 'project' field: ${JSON.stringify(entry)}`));
+    }
+  }
+
+  return projectSet;
+}
+
