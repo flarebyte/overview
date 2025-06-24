@@ -10,16 +10,14 @@ messagecopperframe [label="message_copperframe (Flutter)", color=green, style=fi
 messageslotbubblegum [label="message_slot_bubblegum (Flutter)", color=green, style=filled, fillcolor=lightgreen];
 previewslotbubblegum [label="preview_slot_bubblegum (Flutter)", color=green, style=filled, fillcolor=lightgreen];
 slotboardcopperframe [label="slotboard_copperframe (Flutter)", color=green, style=filled, fillcolor=lightgreen];
-textcopperframe -> eagleyeix
-validomix -> eagleyeix
+documentslotbubblegum -> grandcopperframe
+documentslotbubblegum -> slotboardcopperframe
 grandcopperframe -> validomix
-textcopperframe -> validomix
 messagecopperframe -> grandcopperframe
 messageslotbubblegum -> grandcopperframe
-messageslotbubblegum -> grandcopperframe
-documentslotbubblegum -> grandcopperframe
 messageslotbubblegum -> messageslotbubblegum
 messageslotbubblegum -> slotboardcopperframe
-messageslotbubblegum -> slotboardcopperframe
-documentslotbubblegum -> slotboardcopperframe
+textcopperframe -> eagleyeix
+textcopperframe -> validomix
+validomix -> eagleyeix
 }

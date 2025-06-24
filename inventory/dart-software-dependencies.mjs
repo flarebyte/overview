@@ -6,6 +6,7 @@ import {
   extractProjectSet,
   idFromString,
   renderDotToPng,
+  deduplicateStrings,
 } from './utility.mjs';
 
 const today = new Date();
@@ -109,7 +110,7 @@ const toMermaid = ({ edges, nodes }) => {
 
   const eddeToMermaid = (edge) =>
     `${idFromString(edge.from)} -> ${idFromString(edge.to)}`;
-  const edgeSecion = edges.map(eddeToMermaid).join('\n');
+  const edgeSecion = deduplicateStrings(edges.map(eddeToMermaid)).join('\n');
   return nodeSection + '\n' + edgeSecion;
 };
 const diagram = toMermaid(diagramEdges);

@@ -308,20 +308,30 @@ export function idFromString(input) {
   return id;
 }
 
-/**
- * Render a DOT file to a PNG using Graphviz.
- * 
- * @param {string} graph - Base name of the .dot file (without extension)
- */
 export async function renderDotToPng(graph) {
   const input = `${graph}.dot`;
   const output = `${graph}.png`;
 
   try {
     await $`dot -Tpng ${input} -o ${output}`;
-    console.log(chalk.green(`✔ Successfully rendered ${chalk.bold(input)} to ${chalk.bold(output)}`));
+    console.log(
+      chalk.green(
+        `✔ Successfully rendered ${chalk.bold(input)} to ${chalk.bold(output)}`
+      )
+    );
   } catch (err) {
     console.error(chalk.red(`✖ Failed to render ${chalk.bold(input)}.`));
     console.error(chalk.red(err.stderr || err.message));
   }
+}
+
+export function deduplicateStrings(items) {
+  const seen = new Set();
+  return items
+    .filter((item) => {
+      if (seen.has(item)) return false;
+      seen.add(item);
+      return true;
+    })
+    .sort();
 }
