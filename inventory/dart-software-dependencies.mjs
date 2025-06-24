@@ -4,6 +4,7 @@ import {
   loadClingyByTopicJson,
   addProjectFromPath,
   extractProjectSet,
+  idFromString,
 } from './utility.mjs';
 
 const today = new Date();
@@ -86,17 +87,28 @@ export function packageInfoToEdges() {
     edges.push({ from: project, to: Name });
   }
 
-  const dartNodes = [...dartSet].sort().map((name) => ({ name, kind: 'dart' }));
+  const dartNodes = [...dartSet].sort().map((name) => ({ name, kind: 'Dart' }));
   const flutterNodes = [...flutterSet]
     .sort()
-    .map((name) => ({ name, kind: 'flutter' }));
+    .map((name) => ({ name, kind: 'Flutter' }));
 
   const nodes = [...dartNodes, ...flutterNodes];
-  return {edges, nodes};
+  return { edges, nodes };
 }
 
 const diagramEdges = packageInfoToEdges();
-console.log(diagramEdges);
+const toMermaid = ({ edges, nodes }) => {
+  const header = `---
+title: Dart & Flutter dependencies
+---
+flowchart LR
+`;
+  const nodeToMermaid = (node) =>
+    `${idFromString(node.name)}["${node.name} (${node.kind})"]`;
+  const nodeSection = nodes.map(nodeToMermaid).join('\n');
+  return header + nodeSection;
+};
+console.log(toMermaid(diagramEdges));
 
 // const packageInfo = await fetchPubPackage({ name: 'http', count: 1 });
 // console.log(packageInfo);

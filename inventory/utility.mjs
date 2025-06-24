@@ -191,10 +191,13 @@ export function getFieldLength(fieldObject) {
 /** Counts js, ts and dart unit tests */
 export const countTests = async (folder) => {
   cd(folder);
-  const regexForTsTests = '^\\s*(test(?:.each)?|it)\\s*\\(\\s*[\'"].+?[\'"]\\s*,';
-  const regexForGoTests = '^func\\s+Test\\w+\\s*\\(\\s*t\\s+\\*testing\\.T\\s*\\)'
-  
-  const testResult = await $`rg --json --stats -e ${regexForTsTests} -e ${regexForGoTests}`;
+  const regexForTsTests =
+    '^\\s*(test(?:.each)?|it)\\s*\\(\\s*[\'"].+?[\'"]\\s*,';
+  const regexForGoTests =
+    '^func\\s+Test\\w+\\s*\\(\\s*t\\s+\\*testing\\.T\\s*\\)';
+
+  const testResult =
+    await $`rg --json --stats -e ${regexForTsTests} -e ${regexForGoTests}`;
   const jsonLines = testResult.stdout.split('\n');
   const lastLine = jsonLines[jsonLines.length - 2];
   const statsJson = JSON.parse(lastLine);
@@ -232,26 +235,36 @@ export async function loadClingyByTopicJson(topic, suffix = '') {
     const content = await fs.readFile(filename, 'utf-8');
     const parsed = JSON.parse(content);
     if (!Array.isArray(parsed)) {
-      console.warn(chalk.yellow(`⚠ Warning: '${filename}' does not contain an array.`));
+      console.warn(
+        chalk.yellow(`⚠ Warning: '${filename}' does not contain an array.`)
+      );
       return [];
     }
     return parsed;
   } catch (err) {
-    console.error(chalk.red(`✖ Error reading or parsing '${filename}': ${err.message}`));
+    console.error(
+      chalk.red(`✖ Error reading or parsing '${filename}': ${err.message}`)
+    );
     return [];
   }
 }
 
 export function addProjectFromPath(entry) {
   if (!entry?.Path || typeof entry.Path !== 'string') {
-    console.error(chalk.red('✖ Error: Missing or invalid "Path" field in entry.'));
+    console.error(
+      chalk.red('✖ Error: Missing or invalid "Path" field in entry.')
+    );
     return entry;
   }
 
   const project = entry.Path.split('/')[0];
 
   if (!project) {
-    console.warn(chalk.yellow(`⚠ Warning: Could not extract project from Path: '${entry.Path}'`));
+    console.warn(
+      chalk.yellow(
+        `⚠ Warning: Could not extract project from Path: '${entry.Path}'`
+      )
+    );
   }
 
   return {
@@ -272,9 +285,25 @@ export function extractProjectSet(entries = []) {
     if (entry?.project) {
       projectSet.add(entry.project);
     } else {
-      console.warn(chalk.yellow(`⚠ Warning: Entry missing 'project' field: ${JSON.stringify(entry)}`));
+      console.warn(
+        chalk.yellow(
+          `⚠ Warning: Entry missing 'project' field: ${JSON.stringify(entry)}`
+        )
+      );
     }
   }
 
   return projectSet;
+}
+
+export function idFromString(input) {
+  const id = input.replace(/[^a-zA-Z]/g, '');
+
+  if (!id) {
+    console.warn(
+      chalk.yellow(`⚠ Warning: No letters found in input string: "${input}"`)
+    );
+  }
+
+  return id;
 }
