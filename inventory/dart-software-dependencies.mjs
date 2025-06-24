@@ -5,6 +5,7 @@ import {
   addProjectFromPath,
   extractProjectSet,
   idFromString,
+  renderDotToPng,
 } from './utility.mjs';
 
 const today = new Date();
@@ -87,10 +88,12 @@ export function packageInfoToEdges() {
     edges.push({ from: project, to: Name });
   }
 
-  const dartNodes = [...dartSet].sort().map((name) => ({ name, kind: 'Dart' }));
+  const dartNodes = [...dartSet]
+    .sort()
+    .map((name) => ({ name, kind: 'Dart', color: 'blue' }));
   const flutterNodes = [...flutterSet]
     .sort()
-    .map((name) => ({ name, kind: 'Flutter' }));
+    .map((name) => ({ name, kind: 'Flutter', color: 'green' }));
 
   const nodes = [...dartNodes, ...flutterNodes];
   return { edges, nodes };
@@ -98,26 +101,32 @@ export function packageInfoToEdges() {
 
 const diagramEdges = packageInfoToEdges();
 const toMermaid = ({ edges, nodes }) => {
-  const header = `---
-title: Dart & Flutter dependencies
----
-flowchart LR
-`;
   const nodeToMermaid = (node) =>
-    `${idFromString(node.name)}["${node.name} (${node.kind})"]`;
+    `${idFromString(node.name)} [label="${node.name} (${node.kind})", color=${
+      node.color
+    }, style=filled, fillcolor=light${node.color}];`;
   const nodeSection = nodes.map(nodeToMermaid).join('\n');
 
   const eddeToMermaid = (edge) =>
-    `${idFromString(edge.from)} --> ${idFromString(edge.to)}`;
+    `${idFromString(edge.from)} -> ${idFromString(edge.to)}`;
   const edgeSecion = edges.map(eddeToMermaid).join('\n');
-  return header + nodeSection + '\n' + edgeSecion;
+  return nodeSection + '\n' + edgeSecion;
 };
 const diagram = toMermaid(diagramEdges);
+const dotContent = ['digraph SimpleGraph {', diagram, '}'];
+
+await fs.outputFile(
+  './dart-software-dependencies.dot',
+  dotContent.join('\n'),
+  'utf8'
+);
+
+await renderDotToPng('dart-software-dependencies');
+
 const content = [
-  '# Dart & Flutter Software dependencies',
-  '```mermaid',
-  diagram,
-  '```',
+  '# Dart and Flutter dependencies',
+  '## Graph overview',
+  '![Dart software dependencies graph](dart-software-dependencies.png)',
 ];
 
 await fs.outputFile(

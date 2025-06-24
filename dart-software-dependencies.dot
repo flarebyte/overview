@@ -1,0 +1,25 @@
+digraph SimpleGraph {
+booleanrhapsody [label="boolean_rhapsody (Dart)", color=blue, style=filled, fillcolor=lightblue];
+delimatrixdart [label="delimatrix_dart (Dart)", color=blue, style=filled, fillcolor=lightblue];
+eagleyeix [label="eagleyeix (Dart)", color=blue, style=filled, fillcolor=lightblue];
+grandcopperframe [label="grand_copperframe (Dart)", color=blue, style=filled, fillcolor=lightblue];
+textcopperframe [label="text_copperframe (Dart)", color=blue, style=filled, fillcolor=lightblue];
+validomix [label="validomix (Dart)", color=blue, style=filled, fillcolor=lightblue];
+documentslotbubblegum [label="document_slot_bubblegum (Flutter)", color=green, style=filled, fillcolor=lightgreen];
+messagecopperframe [label="message_copperframe (Flutter)", color=green, style=filled, fillcolor=lightgreen];
+messageslotbubblegum [label="message_slot_bubblegum (Flutter)", color=green, style=filled, fillcolor=lightgreen];
+previewslotbubblegum [label="preview_slot_bubblegum (Flutter)", color=green, style=filled, fillcolor=lightgreen];
+slotboardcopperframe [label="slotboard_copperframe (Flutter)", color=green, style=filled, fillcolor=lightgreen];
+textcopperframe -> eagleyeix
+validomix -> eagleyeix
+grandcopperframe -> validomix
+textcopperframe -> validomix
+messagecopperframe -> grandcopperframe
+messageslotbubblegum -> grandcopperframe
+messageslotbubblegum -> grandcopperframe
+documentslotbubblegum -> grandcopperframe
+messageslotbubblegum -> messageslotbubblegum
+messageslotbubblegum -> slotboardcopperframe
+messageslotbubblegum -> slotboardcopperframe
+documentslotbubblegum -> slotboardcopperframe
+}
