@@ -71,18 +71,28 @@ const projects = extractProjectSet(dartAndFlutterPackages);
 
 export function packageInfoToEdges() {
   const edges = [];
+  const dartSet = new Set();
+  const flutterSet = new Set();
   for (const dartPack of dartPackage) {
     const { Name, project } = dartPack;
+    dartSet.add(project);
     if (!projects.has(Name)) continue;
-    edges.push({ from: project, to: Name, projectType: 'dart' });
+    edges.push({ from: project, to: Name });
   }
   for (const flutterPack of flutterPackage) {
     const { Name, project } = flutterPack;
+    flutterSet.add(project);
     if (!projects.has(Name)) continue;
-    edges.push({ from: project, to: Name, projectType: 'flutter' });
+    edges.push({ from: project, to: Name });
   }
 
-  return edges;
+  const dartNodes = [...dartSet].sort().map((name) => ({ name, kind: 'dart' }));
+  const flutterNodes = [...flutterSet]
+    .sort()
+    .map((name) => ({ name, kind: 'flutter' }));
+
+  const nodes = [...dartNodes, ...flutterNodes];
+  return {edges, nodes};
 }
 
 const diagramEdges = packageInfoToEdges();
