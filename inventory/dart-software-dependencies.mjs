@@ -106,9 +106,25 @@ flowchart LR
   const nodeToMermaid = (node) =>
     `${idFromString(node.name)}["${node.name} (${node.kind})"]`;
   const nodeSection = nodes.map(nodeToMermaid).join('\n');
-  return header + nodeSection;
+
+  const eddeToMermaid = (edge) =>
+    `${idFromString(edge.from)} --> ${idFromString(edge.to)}`;
+  const edgeSecion = edges.map(eddeToMermaid).join('\n');
+  return header + nodeSection + '\n' + edgeSecion;
 };
-console.log(toMermaid(diagramEdges));
+const diagram = toMermaid(diagramEdges);
+const content = [
+  '# Dart & Flutter Software dependencies',
+  '```mermaid',
+  diagram,
+  '```',
+];
+
+await fs.outputFile(
+  './DART-SOFTWARE-DEPENDENCIES.md',
+  content.join('\n'),
+  'utf8'
+);
 
 // const packageInfo = await fetchPubPackage({ name: 'http', count: 1 });
 // console.log(packageInfo);
