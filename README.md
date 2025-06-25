@@ -5,7 +5,7 @@
 -   [Software health](SOFTWARE-HEALTH.md)
 -   [Software timeline](./SOFTWARE-TIMELINE.md)
 -   [NPM Software dependencies](./NPM-SOFTWARE-DEPENDENCIES.md)
--   [Other Software dependencies](./OTHER-SOFTWARE-DEPENDENCIES.md)
+-   [Dart Software dependencies](./DART-SOFTWARE-DEPENDENCIES.md)
 
 ## Typescript/Javascript libraries
 

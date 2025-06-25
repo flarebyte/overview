@@ -50,11 +50,17 @@ export async function fetchPubPackage({
       };
     } else {
       console.error(
-        chalk.red(`❌ Failed to fetch package `) +
+        chalk.orange(`❌ Failed to fetch package `) +
           chalk.bold(Name) +
           chalk.red(`. Status: ${response.status}`)
       );
-      return undefined;
+      return {
+        Name,
+        Count,
+        MinVersion,
+        MaxVersion,
+        Category,
+      };
     }
   } catch (err) {
     console.error(
@@ -62,7 +68,13 @@ export async function fetchPubPackage({
         chalk.bold(Name) +
         chalk.red(`: ${err.message}`)
     );
-    return undefined;
+    return {
+      Name,
+      Count,
+      MinVersion,
+      MaxVersion,
+      Category,
+    };
   }
 }
 
@@ -136,13 +148,20 @@ await fs.outputFile(
 
 await renderDotToPng('dart-software-dependencies');
 
+const enrichedDartAggregate = await Promise.all(
+  dartPackageAggregate.map(fetchPubPackage)
+);
+const enrichedFlutterAggregate = await Promise.all(
+  flutterPackageAggregate.map(fetchPubPackage)
+);
+
 const toTableRow = (r) =>
   `|${r.Name}|${r.description}|${scoreToStars(r.Count)} |${r.Count}|${
     r.MinVersion
   }|${r.MaxVersion}|${r.version}|${updatedToFlag(r.modifiedInDays)}|}`;
-const scoreDepsDartTable = dartPackageAggregate.map(toTableRow).join('\n');
+const scoreDepsDartTable = enrichedDartAggregate.map(toTableRow).join('\n');
 
-const scoreDepsFlutterTable = flutterPackageAggregate
+const scoreDepsFlutterTable = enrichedFlutterAggregate
   .map(toTableRow)
   .join('\n');
 const mdTable = (table) => `
@@ -153,6 +172,7 @@ ${table}
 
 const content = [
   '# Dart and Flutter dependencies',
+  '> Production Dart and Flutter dependencies ranking based on usage.',
   '## Graph overview',
   '![Dart software dependencies graph](dart-software-dependencies.png)',
   '## Dart production dependencies table',
@@ -168,6 +188,3 @@ await fs.outputFile(
   content.join('\n'),
   'utf8'
 );
-
-// const packageInfo = await fetchPubPackage({ Name: 'http', Count: 1 });
-// console.log(packageInfo);
