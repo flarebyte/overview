@@ -18,8 +18,14 @@ const today = new Date();
  * @param {string} name - The pub.dev package name.
  * @returns {Promise<object|undefined>} JSON response or undefined if failed.
  */
-export async function fetchPubPackage({ name, count }) {
-  const url = `https://pub.dev/api/packages/${name}`;
+export async function fetchPubPackage({
+  Name,
+  Count,
+  MinVersion,
+  MaxVersion,
+  Category,
+}) {
+  const url = `https://pub.dev/api/packages/${Name}`;
   try {
     const response = await fetch(url);
 
@@ -32,17 +38,20 @@ export async function fetchPubPackage({ name, count }) {
       const differenceInMs = today - modifiedDate;
       const modifiedInDays = differenceInMs / (1000 * 60 * 60 * 24);
       return {
-        name,
+        Name: name,
         description,
         homepage: repository,
         version,
         modifiedInDays,
-        count,
+        Count,
+        MinVersion,
+        MaxVersion,
+        Category,
       };
     } else {
       console.error(
         chalk.red(`❌ Failed to fetch package `) +
-          chalk.bold(name) +
+          chalk.bold(Name) +
           chalk.red(`. Status: ${response.status}`)
       );
       return undefined;
@@ -50,27 +59,28 @@ export async function fetchPubPackage({ name, count }) {
   } catch (err) {
     console.error(
       chalk.red(`❌ Network error while fetching `) +
-        chalk.bold(name) +
+        chalk.bold(Name) +
         chalk.red(`: ${err.message}`)
     );
     return undefined;
   }
 }
 
+const byProd = (row) => row.Category === 'prod';
+
 const dartPackage = (await loadClingyByTopicJson('dart-package')).map(
   addProjectFromPath
 );
-const dartPackageAggregate = await loadClingyByTopicJson(
-  'dart-package',
-  '-aggregate'
-);
+const dartPackageAggregate = (
+  await loadClingyByTopicJson('dart-package', '-aggregate')
+).filter(byProd);
+
 const flutterPackage = (await loadClingyByTopicJson('flutter-package')).map(
   addProjectFromPath
 );
-const flutterPackageAggregate = await loadClingyByTopicJson(
-  'flutter-package',
-  '-aggregate'
-);
+const flutterPackageAggregate = (
+  await loadClingyByTopicJson('flutter-package', '-aggregate')
+).filter(byProd);
 const dartAndFlutterPackages = [...dartPackage, ...flutterPackage];
 const projects = extractProjectSet(dartAndFlutterPackages);
 
@@ -125,24 +135,19 @@ await fs.outputFile(
 );
 
 await renderDotToPng('dart-software-dependencies');
-const byProd = (row) => row.Category === 'prod';
 
 const toTableRow = (r) =>
-  `|${r.Name}|Desc|${scoreToStars(r.Count)} |${r.Count}|${r.MinVersion}|${
-    r.MaxVersion
-  }|Updated|}`;
-const scoreDepsDartTable = dartPackageAggregate
-  .filter(byProd)
-  .map(toTableRow)
-  .join('\n');
+  `|${r.Name}|${r.description}|${scoreToStars(r.Count)} |${r.Count}|${
+    r.MinVersion
+  }|${r.MaxVersion}|${r.version}|${updatedToFlag(r.modifiedInDays)}|}`;
+const scoreDepsDartTable = dartPackageAggregate.map(toTableRow).join('\n');
 
 const scoreDepsFlutterTable = flutterPackageAggregate
-  .filter(byProd)
   .map(toTableRow)
   .join('\n');
 const mdTable = (table) => `
-| Name | Description | Score | Use | Min Version | Max Version | Updated |
-|------| ------------|-------|-----|-------------|-------------|---------|
+| Name | Description | Score | Use | Min Version | Max Version | Latest Version | Updated |
+|------| ------------|-------|-----|-------------|-------------|----------------| --------|
 ${table}
 `;
 
@@ -164,5 +169,5 @@ await fs.outputFile(
   'utf8'
 );
 
-// const packageInfo = await fetchPubPackage({ name: 'http', count: 1 });
+// const packageInfo = await fetchPubPackage({ Name: 'http', Count: 1 });
 // console.log(packageInfo);

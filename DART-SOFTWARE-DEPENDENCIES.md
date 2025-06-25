@@ -4,20 +4,20 @@
 ## Dart production dependencies table
 
 
-| Name | Description | Score | Use | Min Version | Max Version | Updated |
-|------| ------------|-------|-----|-------------|-------------|---------|
-|eagleyeix|Desc|✰ |2|||Updated|}
-|validomix|Desc|✰ |2|||Updated|}
+| Name | Description | Score | Use | Min Version | Max Version | Latest Version | Updated |
+|------| ------------|-------|-----|-------------|-------------|----------------| --------|
+|eagleyeix|undefined|✰ |2|||undefined|> 2 years 🌩|}
+|validomix|undefined|✰ |2|||undefined|> 2 years 🌩|}
 
 ## Flutter production dependencies table
 
 
-| Name | Description | Score | Use | Min Version | Max Version | Updated |
-|------| ------------|-------|-----|-------------|-------------|---------|
-|cupertino_icons|Desc|✰ |2|^1.0.8|^1.0.8|Updated|}
-|flutter|Desc|✰✰ |6|||Updated|}
-|flutter_localizations|Desc| |1|||Updated|}
-|grand_copperframe|Desc|✰✰ |4|||Updated|}
-|intl|Desc| |1|any|any|Updated|}
-|message_slot_bubblegum|Desc| |1|||Updated|}
-|slotboard_copperframe|Desc|✰ |3|||Updated|}
+| Name | Description | Score | Use | Min Version | Max Version | Latest Version | Updated |
+|------| ------------|-------|-----|-------------|-------------|----------------| --------|
+|cupertino_icons|undefined|✰ |2|^1.0.8|^1.0.8|undefined|> 2 years 🌩|}
+|flutter|undefined|✰✰ |6|||undefined|> 2 years 🌩|}
+|flutter_localizations|undefined| |1|||undefined|> 2 years 🌩|}
+|grand_copperframe|undefined|✰✰ |4|||undefined|> 2 years 🌩|}
+|intl|undefined| |1|any|any|undefined|> 2 years 🌩|}
+|message_slot_bubblegum|undefined| |1|||undefined|> 2 years 🌩|}
+|slotboard_copperframe|undefined|✰ |3|||undefined|> 2 years 🌩|}
