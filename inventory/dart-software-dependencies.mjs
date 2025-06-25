@@ -7,6 +7,8 @@ import {
   idFromString,
   renderDotToPng,
   deduplicateStrings,
+  scoreToStars,
+  updatedToFlag,
 } from './utility.mjs';
 
 const today = new Date();
@@ -123,11 +125,37 @@ await fs.outputFile(
 );
 
 await renderDotToPng('dart-software-dependencies');
+const byProd = (row) => row.Category === 'prod';
+
+const toTableRow = (r) =>
+  `|${r.Name}|Desc|${scoreToStars(r.Count)} |${r.Count}|${r.MinVersion}|${
+    r.MaxVersion
+  }|Updated|}`;
+const scoreDepsDartTable = dartPackageAggregate
+  .filter(byProd)
+  .map(toTableRow)
+  .join('\n');
+
+const scoreDepsFlutterTable = flutterPackageAggregate
+  .filter(byProd)
+  .map(toTableRow)
+  .join('\n');
+const mdTable = (table) => `
+| Name | Description | Score | Use | Min Version | Max Version | Updated |
+|------| ------------|-------|-----|-------------|-------------|---------|
+${table}
+`;
 
 const content = [
   '# Dart and Flutter dependencies',
   '## Graph overview',
   '![Dart software dependencies graph](dart-software-dependencies.png)',
+  '## Dart production dependencies table',
+  '',
+  mdTable(scoreDepsDartTable),
+  '## Flutter production dependencies table',
+  '',
+  mdTable(scoreDepsFlutterTable),
 ];
 
 await fs.outputFile(

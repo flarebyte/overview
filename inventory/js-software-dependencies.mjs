@@ -1,5 +1,6 @@
 #!/usr/bin/env zx
 $.verbose = false;
+import { scoreToStars, updatedToFlag } from './utility.mjs';
 
 const today = new Date();
 
@@ -20,7 +21,6 @@ const npmPackages = JSON.parse(
 const npmCliPackages = JSON.parse(
   await $`gh search repos --owner flarebyte --visibility public --topic npm-cli --json name,description`
 );
-
 
 const allNpmPackages = [...npmPackages, ...npmCliPackages];
 
@@ -89,32 +89,6 @@ const childNpmDependencies = await Promise.all(
   scoreRows.map((row) => getNpmInfoForLib(row))
 );
 
-const scoreToStars = (score) => {
-  if (score === 0) {
-    return '';
-  }
-
-  const logScore = Math.ceil(Math.log(score) / Math.log(3));
-  return '✰'.repeat(logScore);
-};
-
-const updatedToFlag = (days) => {
-  if (days < 30) {
-    return '< month 🌞';
-  }
-  if (days < 90) {
-    return '< quarter 🌤';
-  }
-  if (days < 365) {
-    return '< year ⛅';
-  }
-  if (days < 365 * 2) {
-    return '<  2 year 🌧';
-  }
-
-  return '> 2 years 🌩';
-};
-
 const homepageOrName = (keyScore) =>
   keyScore.homepage === undefined
     ? keyScore.name
@@ -147,7 +121,6 @@ const scoreCliTable = npmCliPackages
   )
   .join('\n');
 
-
 const mdReport = `
 # Software dependencies
 
@@ -160,4 +133,6 @@ const mdReport = `
 ${scoreDepsTable}
 `;
 
-await fs.writeFile('NPM-SOFTWARE-DEPENDENCIES.md', mdReport, { encoding: 'utf8' });
+await fs.writeFile('NPM-SOFTWARE-DEPENDENCIES.md', mdReport, {
+  encoding: 'utf8',
+});

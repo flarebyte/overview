@@ -335,3 +335,29 @@ export function deduplicateStrings(items) {
     })
     .sort();
 }
+
+export const scoreToStars = (score) => {
+  if (score === 0) {
+    return '';
+  }
+
+  const logScore = Math.ceil(Math.log(score) / Math.log(3));
+  return '✰'.repeat(logScore);
+};
+
+export const updatedToFlag = (days) => {
+  if (days < 30) {
+    return '< month 🌞';
+  }
+  if (days < 90) {
+    return '< quarter 🌤';
+  }
+  if (days < 365) {
+    return '< year ⛅';
+  }
+  if (days < 365 * 2) {
+    return '<  2 year 🌧';
+  }
+
+  return '> 2 years 🌩';
+};
