@@ -44,13 +44,32 @@ workflows:
           commands:
             - title: Run zx software-timeline.mjs
               run: npx zx inventory/software-timeline.mjs
-      deps:
-        title: Generate SOFTWARE-DEPENDENCIES.md
-        description: Generate software dependencies report
+      js-deps:
+        title: Generate NPM-SOFTWARE-DEPENDENCIES.md
+        description: Generate NPM software dependencies report
         main:
           commands:
             - title: Run zx js-software-dependencies.mjs
               run: npx zx inventory/js-software-dependencies.mjs
+      dart-deps:
+        title: Generate DART-SOFTWARE-DEPENDENCIES.md
+        description: Generate Dart and Flutter software dependencies report (stats first)
+        main: 
+          commands:
+            - title: List the clingy files
+              run: ls *-clingy.json
+            - title: Run zx dart-software-dependencies.mjs
+              run: npx zx inventory/dart-software-dependencies.mjs
+      clean-deps:
+        title: Clean intermediate json files
+        description: Delete all clingy intermediate json files
+        main:
+          commands:
+            - title: Delete clingy files
+              run: rm *-clingy.json
+            - title: Delete clingy-aggregate json file
+              run: rm *-clingy-aggregate.json
+           
       readme:
         title: Generate README.md
         description: Generate the readme with an overview of all the dependencies created
