@@ -1,0 +1,12 @@
+title: Exposing the code that's a little too attached
+github:
+  name: clingy-code-detective
+  owner: flarebyte
+diagram:
+  dependencies:
+    automation: automatic
+    performance: seconds
+deps:
+  audit:
+    automation: automatic
+    performance: seconds

@@ -13,32 +13,34 @@ import {
   getISODateString,
   getFieldLength,
   countTests,
+  runClingy,
+  runClingyAggregate,
 } from './utility.mjs';
 
 /** Clone all the github projects for given topic*/
 const processRepositoriesByTopic = async (topic, options) => {
   const folder = `/tmp/overview/${topic}`;
-  const npmPackageRepos = await getRepos(topic);
-  const numberOfDaysSinceCreation = npmPackageRepos.map(
+  const packageRepos = await getRepos(topic);
+  const numberOfDaysSinceCreation = packageRepos.map(
     (repo) => repo.numberOfDaysSinceCreation
   );
-  const numberOfDaysSincePush = npmPackageRepos.map(
+  const numberOfDaysSincePush = packageRepos.map(
     (repo) => repo.numberOfDaysSincePush
   );
-  const numberOfDaysOfActivity = npmPackageRepos.map(
+  const numberOfDaysOfActivity = packageRepos.map(
     (repo) => repo.numberOfDaysOfActivity
   );
-  const sizes = npmPackageRepos.map((repo) => repo.size);
+  const sizes = packageRepos.map((repo) => repo.size);
 
   if (options.clone) {
     await resetTempFolder(topic);
     console.log(`- Reset folder ${folder}`);
 
-    await cloneFlarebyteRepositories(folder, npmPackageRepos);
+    await cloneFlarebyteRepositories(folder, packageRepos);
   }
   const trivyFsJSON = await runTrivyFs(folder);
   const trivyFsData = trivyFsSummary(trivyFsJSON);
-
+  // scc
   const countOfProjects = 10;
   const sccJson = await runScc(folder);
   const sccColumns = convertToIndexedColumnsFormat(simplifyScc(sccJson));
@@ -85,14 +87,21 @@ const processRepositoriesByTopic = async (topic, options) => {
     ...createObjectField('tests', numberOfTests, rowCount),
   };
 
+  const clingyJson = await runClingy(folder);
+  const clingyAggregateJson = await runClingyAggregate(folder);
+
   cd(process.env.PWD);
   await fs.writeJson(
     `./data/${topic}-${getISODateString()}.json`,
     sccColumnMerged
   );
+
+  await fs.writeJson(`./${topic}-clingy.json`, clingyJson);
+  await fs.writeJson(`./${topic}-clingy-aggregate.json`, clingyAggregateJson);
 };
 
 await processRepositoriesByTopic('npm-package', { clone: true });
 await processRepositoriesByTopic('npm-cli', { clone: true });
 await processRepositoriesByTopic('dart-package', { clone: true });
 await processRepositoriesByTopic('flutter-package', { clone: true });
+await processRepositoriesByTopic('go-cli', { clone: true });

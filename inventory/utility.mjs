@@ -191,8 +191,13 @@ export function getFieldLength(fieldObject) {
 /** Counts js, ts and dart unit tests */
 export const countTests = async (folder) => {
   cd(folder);
-  const regexForTests = '^\\s*(test(?:.each)?|it)\\s*\\(\\s*[\'"].+?[\'"]\\s*,';
-  const testResult = await $`rg --json --stats ${regexForTests}`;
+  const regexForTsTests =
+    '^\\s*(test(?:.each)?|it)\\s*\\(\\s*[\'"].+?[\'"]\\s*,';
+  const regexForGoTests =
+    '^func\\s+Test\\w+\\s*\\(\\s*t\\s+\\*testing\\.T\\s*\\)';
+
+  const testResult =
+    await $`rg --json --stats -e ${regexForTsTests} -e ${regexForGoTests}`;
   const jsonLines = testResult.stdout.split('\n');
   const lastLine = jsonLines[jsonLines.length - 2];
   const statsJson = JSON.parse(lastLine);
@@ -202,4 +207,157 @@ export const countTests = async (folder) => {
     },
   } = statsJson;
   return matches;
+};
+
+/** Run clingy command on the given folder */
+export const runClingy = async (folder) => {
+  cd(folder);
+  const clingyResult = await $`clingy --json .`;
+  return JSON.parse(clingyResult.stdout);
+};
+
+/** Run clingy aggregate command on the given folder */
+export const runClingyAggregate = async (folder) => {
+  cd(folder);
+  const clingyResult = await $`clingy --json --aggregate .`;
+  return JSON.parse(clingyResult.stdout);
+};
+
+export async function loadClingyByTopicJson(topic, suffix = '') {
+  const filename = `${topic}-clingy${suffix}.json`;
+
+  if (!(await fs.exists(filename))) {
+    console.error(chalk.red(`✖ Error: File '${filename}' not found.`));
+    return [];
+  }
+
+  try {
+    const content = await fs.readFile(filename, 'utf-8');
+    const parsed = JSON.parse(content);
+    if (!Array.isArray(parsed)) {
+      console.warn(
+        chalk.yellow(`⚠ Warning: '${filename}' does not contain an array.`)
+      );
+      return [];
+    }
+    return parsed;
+  } catch (err) {
+    console.error(
+      chalk.red(`✖ Error reading or parsing '${filename}': ${err.message}`)
+    );
+    return [];
+  }
+}
+
+export function addProjectFromPath(entry) {
+  if (!entry?.Path || typeof entry.Path !== 'string') {
+    console.error(
+      chalk.red('✖ Error: Missing or invalid "Path" field in entry.')
+    );
+    return entry;
+  }
+
+  const project = entry.Path.split('/')[0];
+
+  if (!project) {
+    console.warn(
+      chalk.yellow(
+        `⚠ Warning: Could not extract project from Path: '${entry.Path}'`
+      )
+    );
+  }
+
+  return {
+    ...entry,
+    project,
+  };
+}
+
+export function extractProjectSet(entries = []) {
+  if (!Array.isArray(entries)) {
+    console.error(chalk.red('✖ Error: Expected an array of entries.'));
+    return new Set();
+  }
+
+  const projectSet = new Set();
+
+  for (const entry of entries) {
+    if (entry?.project) {
+      projectSet.add(entry.project);
+    } else {
+      console.warn(
+        chalk.yellow(
+          `⚠ Warning: Entry missing 'project' field: ${JSON.stringify(entry)}`
+        )
+      );
+    }
+  }
+
+  return projectSet;
+}
+
+export function idFromString(input) {
+  const id = input.replace(/[^a-zA-Z]/g, '');
+
+  if (!id) {
+    console.warn(
+      chalk.yellow(`⚠ Warning: No letters found in input string: "${input}"`)
+    );
+  }
+
+  return id;
+}
+
+export async function renderDotToPng(graph) {
+  const input = `${graph}.dot`;
+  const output = `${graph}.png`;
+
+  try {
+    await $`dot -Tpng ${input} -o ${output}`;
+    console.log(
+      chalk.green(
+        `✔ Successfully rendered ${chalk.bold(input)} to ${chalk.bold(output)}`
+      )
+    );
+  } catch (err) {
+    console.error(chalk.red(`✖ Failed to render ${chalk.bold(input)}.`));
+    console.error(chalk.red(err.stderr || err.message));
+  }
+}
+
+export function deduplicateStrings(items) {
+  const seen = new Set();
+  return items
+    .filter((item) => {
+      if (seen.has(item)) return false;
+      seen.add(item);
+      return true;
+    })
+    .sort();
+}
+
+export const scoreToStars = (score) => {
+  if (score === 0) {
+    return '';
+  }
+
+  const logScore = Math.ceil(Math.log(score) / Math.log(3));
+  return '✰'.repeat(logScore);
+};
+
+export const updatedToFlag = (days) => {
+  if (days < 30) {
+    return '< month 🌞';
+  }
+  if (days < 90) {
+    return '< quarter 🌤';
+  }
+  if (days < 365) {
+    return '< year ⛅';
+  }
+  if (days < 365 * 2) {
+    return '<  2 year 🌧';
+  }
+
+  return '> 2 years 🌩';
 };

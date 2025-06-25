@@ -21,6 +21,7 @@ mindmap
         Communication
         Feedback
         Improvement
+        Timely action
     Assistance
         Automation
         Simplification
@@ -30,6 +31,11 @@ mindmap
        Communication
        Respect
        Empathy
+    Problem-solving excellence
+       Decomposition
+       Abstraction
+       Experimentation
+       Continuous improvement
 ```
 
 ```mermaid
@@ -143,21 +149,6 @@ We value:
 -   Learning: We seek new opportunities to learn new skills and
     technologies.
 
-## Designer and engineer feedback loop 🔄👩‍💻
-
-We get feedback to improve the design and engineering of our software. We
-listen to our users, our stakeholders, and our peers. We measure the impact
-of our changes.
-
-We value:
-
--   Communication: We communicate clearly and effectively with each other
-    and with external parties.
--   Feedback: We solicit, receive, and give constructive feedback to
-    improve our software.
--   Improvement: We implement feedback and track the results of our
-    changes.
-
 ## Designer and engineer assistance 🙋‍♀️👩‍💻
 
 We use tools that assist us in our creativity and effort. We automate
@@ -173,6 +164,25 @@ We value:
 -   Reuse: We use existing solutions that have been proven to work well for
     similar problems.
 
+## Feedback loop and reinforcement learning 🔄🧠
+
+We use feedback to improve not just our software, but also our ways of
+working, our understanding of partners, customers, and our environment. We
+listen to people—users, stakeholders, peers—and also to signals from AI
+systems and tools. Feedback is not just for awareness; it should ideally
+trigger timely action that leads to positive impact.
+
+We value:
+
+-   Communication: We communicate clearly and effectively with each other
+    and with external parties.
+-   Feedback: We solicit, receive, and give constructive feedback to
+    improve outcomes across systems and relationships.
+-   Timely action: We act on feedback quickly, so that learning and
+    improvement can happen smoothly and continuously.
+-   Improvement: We implement feedback and track the results of our
+    changes.
+
 ## Collaboration 👥
 
 We work well with others. We are welcoming, inclusive, respectful, and
@@ -187,3 +197,21 @@ We value:
     with each other.
 -   Respect: We treat each other with dignity and appreciation.
 -   Empathy: We understand each other's feelings, perspectives, and needs.
+
+## Problem-solving excellence
+
+We strive for excellence in solving problems. We break complex challenges
+into manageable parts and explore solutions through iteration and
+experimentation. We value both structure and creativity.
+
+We value:
+
+-   Decomposition: We break problems into smaller, solvable pieces to gain
+    clarity and direction.
+-   Abstraction: We abstract problems so they can be better understood. We
+    use layered abstraction to ensure each layer has focused, limited
+    responsibilities.
+-   Experimentation: We learn through trial and error, testing ideas to
+    discover what works best.
+-   Continuous improvement: We refine our solutions over time, embracing
+    feedback and new insights.

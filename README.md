@@ -4,7 +4,8 @@
 
 -   [Software health](SOFTWARE-HEALTH.md)
 -   [Software timeline](./SOFTWARE-TIMELINE.md)
--   [Software dependencies](./SOFTWARE-DEPENDENCIES.md)
+-   [NPM Software dependencies](./NPM-SOFTWARE-DEPENDENCIES.md)
+-   [Dart Software dependencies](./DART-SOFTWARE-DEPENDENCIES.md)
 
 ## Typescript/Javascript libraries
 
@@ -60,3 +61,9 @@
 | [grand\_copperframe](https://github.com/flarebyte/grand_copperframe) | The higher level data model for copperframe                                  |
 | [text\_copperframe](https://github.com/flarebyte/text_copperframe)   | The versatile text field for every design                                    |
 | [validomix](https://github.com/flarebyte/validomix)                  | From Strings to Objects Validomix validates all                              |
+
+## Go CLI
+
+| Name                                                                        | Description                                    |
+| --------------------------------------------------------------------------- | ---------------------------------------------- |
+| [clingy-code-detective](https://github.com/flarebyte/clingy-code-detective) | Exposing the code that's a little too attached |
