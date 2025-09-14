@@ -3,6 +3,7 @@ booleanrhapsody [label="boolean_rhapsody (Dart)", color=blue, style=filled, fill
 delimatrixdart [label="delimatrix_dart (Dart)", color=blue, style=filled, fillcolor=lightblue];
 eagleyeix [label="eagleyeix (Dart)", color=blue, style=filled, fillcolor=lightblue];
 grandcopperframe [label="grand_copperframe (Dart)", color=blue, style=filled, fillcolor=lightblue];
+kiwiwatermelonstore [label="kiwi_watermelon_store (Dart)", color=blue, style=filled, fillcolor=lightblue];
 textcopperframe [label="text_copperframe (Dart)", color=blue, style=filled, fillcolor=lightblue];
 validomix [label="validomix (Dart)", color=blue, style=filled, fillcolor=lightblue];
 documentslotbubblegum [label="document_slot_bubblegum (Flutter)", color=green, style=filled, fillcolor=lightgreen];
