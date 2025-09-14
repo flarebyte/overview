@@ -158,7 +158,7 @@ const enrichedFlutterAggregate = await Promise.all(
 const toTableRow = (r) =>
   `|${r.Name}|${r.description}|${scoreToStars(r.Count)} |${r.Count}|${
     r.MinVersion
-  }|${r.MaxVersion}|${r.version}|${updatedToFlag(r.modifiedInDays)}|}`;
+  }|${r.MaxVersion}|${r.version}|${updatedToFlag(r.modifiedInDays)}|`;
 const scoreDepsDartTable = enrichedDartAggregate.map(toTableRow).join('\n');
 
 const scoreDepsFlutterTable = enrichedFlutterAggregate

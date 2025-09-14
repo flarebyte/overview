@@ -5,7 +5,7 @@
 -   [Software health](SOFTWARE-HEALTH.md)
 -   [Software timeline](./SOFTWARE-TIMELINE.md)
 -   [NPM Software dependencies](./NPM-SOFTWARE-DEPENDENCIES.md)
--   [Dart Software dependencies](./DART-SOFTWARE-DEPENDENCIES.md)
+-   [Other Software dependencies](./OTHER-SOFTWARE-DEPENDENCIES.md)
 
 ## Typescript/Javascript libraries
 
@@ -53,14 +53,15 @@
 
 ## Dart libraries
 
-| Name                                                                 | Description                                                                  |
-| -------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| [boolean\_rhapsody](https://github.com/flarebyte/boolean_rhapsody)   | Tune into the truth with Boolean Rhapsody in Dart                            |
-| [delimatrix\_dart](https://github.com/flarebyte/delimatrix_dart)     | Delimatrix Dart transforms strings to objects and back with a touch of magic |
-| [eagleyeix](https://github.com/flarebyte/eagleyeix)                  | Eagleyeix the Dart library for sharper observations and smarter reactions    |
-| [grand\_copperframe](https://github.com/flarebyte/grand_copperframe) | The higher level data model for copperframe                                  |
-| [text\_copperframe](https://github.com/flarebyte/text_copperframe)   | The versatile text field for every design                                    |
-| [validomix](https://github.com/flarebyte/validomix)                  | From Strings to Objects Validomix validates all                              |
+| Name                                                                          | Description                                                                  |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [boolean\_rhapsody](https://github.com/flarebyte/boolean_rhapsody)            | Tune into the truth with Boolean Rhapsody in Dart                            |
+| [delimatrix\_dart](https://github.com/flarebyte/delimatrix_dart)              | Delimatrix Dart transforms strings to objects and back with a touch of magic |
+| [eagleyeix](https://github.com/flarebyte/eagleyeix)                           | Eagleyeix the Dart library for sharper observations and smarter reactions    |
+| [grand\_copperframe](https://github.com/flarebyte/grand_copperframe)          | The higher level data model for copperframe                                  |
+| [kiwi\_watermelon\_store](https://github.com/flarebyte/kiwi_watermelon_store) | Dig into your data with our fruity key-value store                           |
+| [text\_copperframe](https://github.com/flarebyte/text_copperframe)            | The versatile text field for every design                                    |
+| [validomix](https://github.com/flarebyte/validomix)                           | From Strings to Objects Validomix validates all                              |
 
 ## Go CLI
 
